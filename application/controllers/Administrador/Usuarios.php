@@ -26,23 +26,27 @@ class Usuarios extends BaseController
         $password = $this->input->post("password");
         $roles = $this->input->post("roles");
 
+        $this->form_validation->set_rules('username', 'Username para ingreso', 'required|is_unique[usuarios.username]');
 
-
-        $data = array(
-            'id_roles' => $roles,
-            'nombres' => $nombre,
-            'apellidos' => $apellidos,
-            'telefono' => $telefono,
-            'email' => $email,
-            'username' => $username,
-            'password' => $this->encryption->encrypt($password),
-            'estado' => "1"
-        );
-        if ($this->Usuario_model->guardar($data)) {
-            redirect(base_url() . 'Administrador/Usuarios');
+        if ($this->form_validation->run()) {
+            $data = array(
+                'id_roles' => $roles,
+                'nombres' => $nombre,
+                'apellidos' => $apellidos,
+                'telefono' => $telefono,
+                'email' => $email,
+                'username' => $username,
+                'password' => $this->encryption->encrypt($password),
+                'estado' => "1"
+            );
+            if ($this->Usuario_model->guardar($data)) {
+                redirect(base_url() . 'Administrador/Usuarios');
+            } else {
+                $this->session->set_flashdata('error', 'No se pudo guardar la informacion del usuario');
+                redirect(base_url() . 'Administrador/Usuarios');
+            }
         } else {
-            $this->session->set_flashdata('error', 'No se pudo guardar la informacion del usuario');
-            redirect(base_url() . 'Administrador/Usuarios');
+            $this->index();
         }
     }
     public function vista()
@@ -73,23 +77,27 @@ class Usuarios extends BaseController
         $username = $this->input->post("username");
         $roles = $this->input->post("roles");
 
+        $this->form_validation->set_rules('username', 'Username para ingreso', 'required|is_unique[usuarios.username]');
+
+        if ($this->form_validation->run()) {
+            $data = array(
+                'id_roles' => $roles,
+                'nombres' => $nombre,
+                'apellidos' => $apellidos,
+                'telefono' => $telefono,
+                'email' => $email,
+                'username' => $username,
 
 
-        $data = array(
-            'id_roles' => $roles,
-            'nombres' => $nombre,
-            'apellidos' => $apellidos,
-            'telefono' => $telefono,
-            'email' => $email,
-            'username' => $username,
-            
-
-        );
-        if ($this->Usuario_model->actualizar($idusuario, $data)) {
-            redirect(base_url() . 'Administrador/Usuarios');
+            );
+            if ($this->Usuario_model->actualizar($idusuario, $data)) {
+                redirect(base_url() . 'Administrador/Usuarios');
+            } else {
+                $this->session->set_flashdata('error', 'No se pudo guardar la informacion del usuario');
+                redirect(base_url() . 'Administrador/Usuarios/editar' . $idusuario);
+            }
         } else {
-            $this->session->set_flashdata('error', 'No se pudo guardar la informacion del usuario');
-            redirect(base_url() . 'Administrador/Usuarios/editar' . $idusuario);
+            $this->editar($idusuario);
         }
     }
     public function borrar($id_usuarios)
