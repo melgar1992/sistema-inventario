@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Sitema Administrativo</title>
+        <title>Sitema Inventario 23k Film</title>
 
         <!-- Bootstrap -->
         <link href="<?php echo base_url(); ?>assets/template/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +57,7 @@
                                 <br />
 
                                 <div>
-                                    <h1><i class="fa fa-building"></i> Sitema Administrativo </h1>
+                                    <h1><i class="fa fa-building"></i> Sitema Inventario </h1>
 
                                 </div>
                             </div>

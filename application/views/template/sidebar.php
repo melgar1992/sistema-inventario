@@ -4,7 +4,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="" class="site_title"><i class="fa fa-building"></i> <span>Sistema Administrativo</span></a>
+                        <a href="" class="site_title"><i class="fa fa-building"></i> <span>Sistema Inventario</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -31,6 +31,7 @@
 
                                         <li><a href="<?php echo base_url(); ?>Mantenimiento/Categorias"><i class="fa fa-circle-o"></i> Categorias</a></li>
                                         <li><a href="<?php echo base_url(); ?>Mantenimiento/Clientes"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                                        <li><a href="<?php echo base_url(); ?>Mantenimiento/Clientes"><i class="fa fa-circle-o"></i> Empleados</a></li>
                                         <li><a href="<?php echo base_url(); ?>Mantenimiento/Productos"><i class="fa fa-circle-o"></i> Productos</a></li>
 
                                     </ul>
