@@ -35,7 +35,7 @@ class Usuarios extends BaseController
             'telefono' => $telefono,
             'email' => $email,
             'username' => $username,
-            'password' => sha1($password),
+            'password' => $this->encryption->encrypt($password),
             'estado' => "1"
         );
         if ($this->Usuario_model->guardar($data)) {

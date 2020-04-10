@@ -39,9 +39,8 @@
                                 <li><a><i class="fa fa-share-alt"></i> Movimientos <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
 
-                                        <li><a href="<?php echo base_url(); ?>Movimientos/Ventas"><i class="fa fa-circle-o"></i> Ventas</a></li>
-                                        <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Compras</a></li>
-                                        <li><a href="<?php echo base_url(); ?>Movimientos/Facturacion"><i class="fa fa-circle-o"></i> Facturas prueba</a></li>
+                                        <li><a href="<?php echo base_url(); ?>Movimientos/Ventas"><i class="fa fa-circle-o"></i> Salida de Vestuario</a></li>
+                                       
 
                                     </ul>
                                 </li>
@@ -58,7 +57,7 @@
                                 <li><a><i class="fa fa-user"></i> Administrador <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
 
-                                        <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Tipo de documentos</a></li>
+
                                         <li><a href="<?php echo base_url(); ?>Empresa/Configuracion_empresa"><i class="fa fa-circle-o"></i> Configuracion de la empresa</a></li>
                                         <li><a href="<?php echo base_url(); ?>Administrador/Usuarios"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                                         <li><a href="<?php echo base_url(); ?>Administrador/Permisos"><i class="fa fa-circle-o"></i> Permisos</a></li>
