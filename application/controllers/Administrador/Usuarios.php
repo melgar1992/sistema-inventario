@@ -26,6 +26,7 @@ class Usuarios extends BaseController
         $password = $this->input->post("password");
         $roles = $this->input->post("roles");
 
+        $this->form_validation->set_rules('email', 'Username para ingreso', 'required|is_unique[usuarios.email]');
         $this->form_validation->set_rules('username', 'Username para ingreso', 'required|is_unique[usuarios.username]');
 
         if ($this->form_validation->run()) {
@@ -85,8 +86,13 @@ class Usuarios extends BaseController
         } else {
             $is_unique = '|is_unique[usuarios.username]';
         }
+        if ($email == $usuario_actual->email) {
+            $is_unique2 = '';
+        } else {
+            $is_unique2 = '|is_unique[usuarios.email]';
+        }
 
-
+        $this->form_validation->set_rules('email', 'Username para ingreso', 'required' . $is_unique2);
         $this->form_validation->set_rules('username', 'Username para ingreso', 'required' . $is_unique);
 
         if ($this->form_validation->run()) {
