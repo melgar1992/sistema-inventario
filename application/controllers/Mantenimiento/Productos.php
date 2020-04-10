@@ -23,13 +23,25 @@ class Productos extends BaseController
         $nombre = $this->input->post("nombre");
         $descripcion = $this->input->post("descripcion");
         $precio = $this->input->post("precio");
+        $precio_compra = $this->input->post("precio_compra");
         $stock = $this->input->post("stock");
         $categoria = $this->input->post("categoria");
+        $lugar_almacenado = $this->input->post("lugar_almacenado");
+        $color = $this->input->post("color");
+        $talla = $this->input->post("talla");
+        $marca = $this->input->post("marca");
+        $fecha_ini = $this->input->post("fecha_ini");
+        $fecha_fin = $this->input->post("fecha_fin");
 
         $this->form_validation->set_rules("codigo", "Codigo", "required|is_unique[productos.codigo]");
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("precio", "Precio", "required");
         $this->form_validation->set_rules("stock", "Stock", "required");
+        $this->form_validation->set_rules("precio_compra", "precio_compra", "required");
+        $this->form_validation->set_rules("color", "color", "required");
+        $this->form_validation->set_rules("talla", "talla", "required");
+        $this->form_validation->set_rules("marca", "marca", "required");
+        $this->form_validation->set_rules("fecha_ini", "Fecha que ingresa el producto", "required");
 
         if ($this->form_validation->run()) {
             $data = array(
@@ -38,8 +50,15 @@ class Productos extends BaseController
                 'codigo' => $codigo,
                 'nombre' => $nombre,
                 'descripcion' => $descripcion,
+                'precio_compra' => $precio_compra,
                 'precio' => $precio,
+                'lugar_almacenado' => $lugar_almacenado,
                 'stock' => $stock,
+                'color' => $color,
+                'talla' => $talla,
+                'marca' => $marca,
+                'fecha_registro' => $fecha_ini,
+                'fecha_salida' => $fecha_fin,
                 'estado' => "1"
             );
 
@@ -67,8 +86,15 @@ class Productos extends BaseController
         $nombre = $this->input->post("nombre");
         $descripcion = $this->input->post("descripcion");
         $precio = $this->input->post("precio");
+        $precio_compra = $this->input->post("precio_compra");
         $stock = $this->input->post("stock");
         $categoria = $this->input->post("categoria");
+        $lugar_almacenado = $this->input->post("lugar_almacenado");
+        $color = $this->input->post("color");
+        $talla = $this->input->post("talla");
+        $marca = $this->input->post("marca");
+        $fecha_ini = $this->input->post("fecha_ini");
+        $fecha_fin = $this->input->post("fecha_fin");
 
         $productoActual = $this->Productos_model->getProducto($id_producto);
         if ($codigo == $productoActual->codigo) {
@@ -81,6 +107,11 @@ class Productos extends BaseController
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("precio", "Precio", "required");
         $this->form_validation->set_rules("stock", "Stock", "required");
+        $this->form_validation->set_rules("precio_compra", "precio_compra", "required");
+        $this->form_validation->set_rules("color", "color", "required");
+        $this->form_validation->set_rules("talla", "talla", "required");
+        $this->form_validation->set_rules("marca", "marca", "required");
+        $this->form_validation->set_rules("fecha_ini", "Fecha que ingresa el producto", "required");
 
         if ($this->form_validation->run()) {
             $data = array(
@@ -90,8 +121,15 @@ class Productos extends BaseController
                 'codigo' => $codigo,
                 'nombre' => $nombre,
                 'descripcion' => $descripcion,
+                'precio_compra' => $precio_compra,
                 'precio' => $precio,
+                'lugar_almacenado' => $lugar_almacenado,
                 'stock' => $stock,
+                'color' => $color,
+                'talla' => $talla,
+                'marca' => $marca,
+                'fecha_registro' => $fecha_ini,
+                'fecha_salida' => $fecha_fin,
                 'estado' => "1"
             );
 

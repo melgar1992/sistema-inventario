@@ -60,6 +60,13 @@
 
                                     </div>
                                 </div>
+                                <div class="form-group <?php echo !empty(form_error("precio_compra")) ? 'has-error' : ''; ?>">
+                                    <label for="precio_compra" class="control-label col-md-3 col-sm-3 col-xs-12">Precio compra <span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="number" value="<?php echo !empty(form_error("precio_compra")) ? set_value('precio_compra') : $producto->precio_compra ?>" step="0.01" name="precio_compra" id="precio_compra" required="required" class="form-group col-md-7 col-xs-12">
+                                        <?php echo form_error("precio_compra", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    </div>
+                                </div>
                                 <div class="form-group <?php echo !empty(form_error("precio")) ? 'has-error' : ''; ?>">
                                     <label for="precio" class="control-label col-md-3 col-sm-3 col-xs-12">precio <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -86,6 +93,48 @@
                                                 <?php endif; ?>
                                             <?php endforeach; ?>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group <?php echo !empty(form_error("lugar_almacenado")) ? 'has-error' : ''; ?>">
+                                    <label for="lugar_almacenado" class="control-label col-md-3 col-sm-3 col-xs-12">lugar almacenado <span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" value="<?php echo !empty(form_error("lugar_almacenado")) ? set_value('lugar_almacenado') : $producto->lugar_almacenado ?>" name="lugar_almacenado" id="lugar_almacenado" required="required" class="form-group col-md-7 col-xs-12">
+                                        <?php echo form_error("lugar_almacenado", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group <?php echo !empty(form_error("color")) ? 'has-error' : ''; ?>">
+                                    <label for="color" class="control-label col-md-3 col-sm-3 col-xs-12">color <span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" value="<?php echo !empty(form_error("color")) ? set_value('color') : $producto->color ?>" name="color" id="color" required="required" class="form-group col-md-7 col-xs-12">
+                                        <?php echo form_error("color", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group <?php echo !empty(form_error("talla")) ? 'has-error' : ''; ?>">
+                                    <label for="talla" class="control-label col-md-3 col-sm-3 col-xs-12">talla <span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" value="<?php echo !empty(form_error("talla")) ? set_value('talla') : $producto->talla ?>" name="talla" id="talla" required="required" class="form-group col-md-7 col-xs-12">
+                                        <?php echo form_error("talla", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group <?php echo !empty(form_error("marca")) ? 'has-error' : ''; ?>">
+                                    <label for="marca" class="control-label col-md-3 col-sm-3 col-xs-12">marca <span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" value="<?php echo !empty(form_error("marca")) ? set_value('marca') : $producto->marca ?>" name="marca" id="marca" required="required" class="form-group col-md-7 col-xs-12">
+                                        <?php echo form_error("marca", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group <?php echo !empty(form_error("fecha_ini")) ? 'has-error' : ''; ?>">
+                                    <label for="fecha_ini" class="control-label col-md-3 col-sm-3 col-xs-12">fecha ini <span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="date" value="<?php echo !empty(form_error("fecha_ini")) ? set_value('fecha_ini') : $producto->fecha_registro ?>" name="fecha_ini" id="fecha_ini" required="required" class="form-group col-md-7 col-xs-12">
+                                        <?php echo form_error("fecha_ini", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group <?php echo !empty(form_error("fecha_fin")) ? 'has-error' : ''; ?>">
+                                    <label for="fecha_fin" class="control-label col-md-3 col-sm-3 col-xs-12">fecha fin </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="date" value="<?php echo !empty(form_error("fecha_fin")) ? set_value('fecha_fin') : $producto->fecha_salida ?>" name="fecha_fin" id="fecha_fin" class="form-group col-md-7 col-xs-12">
+                                        <?php echo form_error("fecha_fin", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
                                 <br>
