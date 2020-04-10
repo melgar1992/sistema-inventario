@@ -46,7 +46,8 @@ class Usuarios extends BaseController
                 redirect(base_url() . 'Administrador/Usuarios');
             }
         } else {
-            $this->index();
+            $this->session->set_flashdata('error', 'No se pudo guardar la informacion del usuario');
+            redirect(base_url() . 'Administrador/Usuarios');
         }
     }
     public function vista()
@@ -77,7 +78,16 @@ class Usuarios extends BaseController
         $username = $this->input->post("username");
         $roles = $this->input->post("roles");
 
-        $this->form_validation->set_rules('username', 'Username para ingreso', 'required|is_unique[usuarios.username]');
+        $usuario_actual = $this->Usuario_model->getUsuario($idusuario);
+
+        if ($username == $usuario_actual->username) {
+            $is_unique = '';
+        } else {
+            $is_unique = '|is_unique[usuarios.username]';
+        }
+
+
+        $this->form_validation->set_rules('username', 'Username para ingreso', 'required' . $is_unique);
 
         if ($this->form_validation->run()) {
             $data = array(
@@ -97,7 +107,8 @@ class Usuarios extends BaseController
                 redirect(base_url() . 'Administrador/Usuarios/editar' . $idusuario);
             }
         } else {
-            $this->editar($idusuario);
+            $this->session->set_flashdata('error', 'No se pudo guardar la informacion del usuario');
+            redirect(base_url() . 'Administrador/Usuarios/editar/' . $idusuario);
         }
     }
     public function borrar($id_usuarios)
