@@ -12,8 +12,8 @@ class Usuario_model extends CI_Model
 
 
         $resultado = $this->db->get("usuarios");
-        $res2 = $resultado->row();
-        if ($resultado->num_rows() > 0 && $this->encryption->decrypt($res2->password) == $password) {
+        $res2 = $resultado->row_array();
+        if ($resultado->num_rows() > 0 && $this->encryption->decrypt($res2['password']) == $password) {
             return  $resultado->row();
         } else {
             return false;
