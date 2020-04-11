@@ -1,14 +1,21 @@
 <?php
 class Empleado_model extends CI_Model
 {
+    public function getTipoDocumentos()
+{
+    $this->db->select('*');
+    $resultado = $this->db->get('tipo_documento');
+    return $resultado->result();
+}
 
     
     public function getEmpleados()
     {
     
-            $this->db->select('e.*, td.nombre as tipo_documento, td.cantidad');
+            $this->db->select('e.*, td.nombre as tipodocumento');
             $this->db->from('empleados e');
             $this->db->join('tipo_documento td', 'td.id_tipo_documento = e.id_tipo_documento');
+         
             $this->db->where('e.estado', '1');
             $resultado = $this->db->get();
 
@@ -32,14 +39,9 @@ class Empleado_model extends CI_Model
             return true;
         }
     }
-    public function guardarEmpleado($datosEmpleado, $tipo_documento)
+    public function guardarEmpleado($datosEmpleado)
     {
-        $this->db->where('nombre', $tipo_documento);
-        $resultado = $this->db->get('tipo_documento')->row();
-
-        $datosEmpleado['id_tipo_documento'] = $resultado->id_tipo_documento;
-
-        return $this->db->insert('empleados', $datosEmpleado);
+        return $this->db->insert("empleados", $datosEmpleado);
     }
     public function getEmpleado($id_empleados)
     {
@@ -56,11 +58,11 @@ class Empleado_model extends CI_Model
             return false;
         }
     }
-    public function actualizar($id_empleados, $tipo_documento, $datos)
+    public function actualizar($id_empleados, $tipodocumento, $datos)
     {
-        $this->db->where('nombre', $tipo_documento);
-        $tipo_documento = $this->db->get('tipo_documento')->row();
-        $datos['id_tipo_documento'] = $tipo_documento->id_tipo_documento;
+        $this->db->where('nombre', $tipodocumento);
+        $tipodocumento = $this->db->get('tipodocumento')->row();
+        $datos['id_tipo_documento'] = $tipodocumento->id_tipo_documento;
 
         $this->db->where('id_empleados', $id_empleados);
         return $this->db->update('empleados', $datos);

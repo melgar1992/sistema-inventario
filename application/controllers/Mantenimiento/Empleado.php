@@ -9,6 +9,7 @@ class Empleado extends BaseController
 
         $data = array(
             'Empleados' => $this->Empleado_model->getEmpleados(),
+            'tipodocumentos'=>$this->Empleado_model->getTipoDocumentos(),
         );
 
         $this->loadView('Empleados', '/form/admin/empleado/list', $data);
@@ -20,8 +21,9 @@ class Empleado extends BaseController
         $telefono1 = $this->input->post('telefono1');
         $telefono2 = $this->input->post('telefono2');
         $direccion = $this->input->post('direccion');
+        $tipodocumento = $this->input->post('tipodocumento');
         $num_documento = $this->input->post('num_documento');
-        $tipo_documento = $this->input->post('tipo_documento');
+       
 
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("apellidos", "Apellidos", "required");
@@ -36,11 +38,12 @@ class Empleado extends BaseController
         );
         $this->form_validation->set_rules("telefono1", "telefono1", "required");       
         $this->form_validation->set_rules("direccion", "direccion", "required");      
-        $this->form_validation->set_rules('tipo_documento', 'tipo_documento', 'trim|required');
+        $this->form_validation->set_rules('tipodocumento', 'tipodocumento', 'required');
 
 
         if ($this->form_validation->run()) {
             $datosEmpleado = array(
+                'id_tipo_documento'=>$tipodocumento,
                 'nombre' => $nombres,
                 'apellidos' => $apellidos,
                 'telefono_01' => $telefono1,
@@ -49,7 +52,7 @@ class Empleado extends BaseController
                 'num_documento' => $num_documento,
                 'estado' => '1',
             );
-            if ($this->Empleado_model->guardarEmpleado($datosEmpleado, $tipo_documento)) {
+            if ($this->Empleado_model->guardarEmpleado($datosEmpleado)) {
                 redirect(base_url() . 'Mantenimiento/Empleado');
             } else {
                 $this->session->set_flashdata("error", "No se pudo guardar los datos del empleado");
@@ -74,8 +77,9 @@ class Empleado extends BaseController
         $telefono1 = $this->input->post('telefono1');
         $telefono2 = $this->input->post('telefono2');
         $direccion = $this->input->post('direccion');
+        $tipodocumento = $this->input->post('tipodocumento');
         $num_documento = $this->input->post('num_documento');
-        $tipo_documento = $this->input->post('tipo_documento');
+       
 
         $empleado_actual = $this->Empleado_model->getEmpleado($id_empleados);
 
@@ -96,7 +100,7 @@ class Empleado extends BaseController
        
         $this->form_validation->set_rules("telefono1", "telefono1", "required");       
         $this->form_validation->set_rules("direccion", "direccion", "required");      
-        $this->form_validation->set_rules('tipo_documento', 'tipo_documento', 'trim|required');
+        $this->form_validation->set_rules('tipodocumento', 'tipodocumento', 'required');
 
         if ($this->form_validation->run()) {
             $datos= array(
@@ -109,7 +113,7 @@ class Empleado extends BaseController
                 'estado' => '1',
             );
             
-            if ($this->Empleado_model->actualizar($id_empleados, $tipo_documento, $datos)) {
+            if ($this->Empleado_model->actualizar($id_empleados, $tipodocumento, $datos)) {
                 redirect(base_url() . "Mantenimiento/Empleado");
 
             } else {
