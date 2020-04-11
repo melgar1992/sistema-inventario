@@ -3,7 +3,7 @@
       <div class="">
           <div class="page-title">
               <div class="title_left">
-                  <h3>Registrar Venta</h3>
+                  <h3>Registrar Salida</h3>
               </div>
 
               <div class="title_right">
@@ -16,7 +16,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                       <div class="x_title">
-                          <h2>Formulario de venta</h2>
+                          <h2>Formulario de salida de inventario</h2>
                           <ul class="nav navbar-right panel_toolbox">
                               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                               </li>
@@ -70,12 +70,28 @@
                                               </div><!-- /input-group -->
                                           </div>
                                           <div class="col-md-3">
-                                                    <label for="descuento">Descuento :</label>
-                                                    <input type="number" name="descuento_porcentaje" id="descuento_porcentaje" class="form-control">
+                                              <label for="descuento">Descuento % :</label>
+                                              <input type="number" name="descuento_porcentaje" id="descuento_porcentaje" class="form-control">
                                           </div>
                                           <div class="col-md-3">
                                               <label for="">Fecha:</label>
                                               <input type="date" value="<?php echo date("Y-m-d") ?>" class="form-control" name="fecha" required>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <div class="col-md-3">
+                                              <label for="proyecto">Proyecto</label>
+                                              <input type="text" name="proyecto" id="proyecto" class="form-control" require>
+                                          </div>
+                                          <div class="col-md-3">
+                                              <label for="">Empleado:</label>
+                                              <div class="input-group">
+                                                  <input type="hidden" name="idempleado" id="idempleado">
+                                                  <input type="text" class="form-control" disabled="disabled" id="empleado">
+                                                  <span class="input-group-btn">
+                                                      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-empleados"><span class="fa fa-search"></span> Buscar</button>
+                                                  </span>
+                                              </div><!-- /input-group -->
                                           </div>
                                       </div>
 
@@ -228,6 +244,10 @@
                               <th>Nombre</th>
                               <th>Precio</th>
                               <th>Stock</th>
+                              <th>Lugar Almacenamiento</th>
+                              <th>Color</th>
+                              <th>Talla</th>
+                              <th>Marca</th>
                               <th>Opcion</th>
                           </tr>
                       </thead>
@@ -239,10 +259,69 @@
                                       <td><?php echo $producto->nombre; ?></td>
                                       <td><?php echo $producto->precio; ?></td>
                                       <td><?php echo $producto->stock; ?></td>
+                                      <td><?php echo $producto->lugar_almacenado; ?></td>
+                                      <td><?php echo $producto->color; ?></td>
+                                      <td><?php echo $producto->talla; ?></td>
+                                      <td><?php echo $producto->marca; ?></td>
                                       <?php $dataproducto = $producto->id_productos . "*" . $producto->codigo . "*" . $producto->nombre . "*" . $producto->precio . "*" . $producto->stock; ?>
 
                                       <td>
                                           <button type="button" class="btn btn-success btn-check-producto" value="<?php echo $dataproducto ?>"><span class="fa fa-check"></span></button>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
+                          <?php endif; ?>
+
+                      </tbody>
+                  </table>
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+              </div>
+          </div>
+          <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+
+  <div class="modal fade" id="modal-empleados">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Lista de Empleados</h4>
+              </div>
+              <div class="modal-body">
+                  <table id="example1" class="table table-bordered table-striped table-hover">
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>Documento</th>
+                              <th>Numero</th>
+                              <th>Telefono</th>
+                              <th>Opcion</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <?php if (!empty($empleados)) : ?>
+                              <?php foreach ($empleados as $empleado) : ?>
+                                  <tr>
+                                      <td><?php echo $empleado->id_empleados; ?></td>
+                                      <td><?php echo $empleado->nombre; ?></td>
+                                      <td><?php echo $empleado->apellidos; ?></td>
+                                      <td><?php echo $empleado->tipo_documento; ?></td>
+                                      <td><?php echo $empleado->num_documento; ?></td>
+                                      <td><?php echo $empleado->telefono_01; ?></td>
+                                      <?php $dataempleado = $empleado->id_empleados . "*" . $empleado->nombre . "*" . $empleado->apellidos . "*" . $empleado->tipo_documento . "*" . $empleado->num_documento . "*" . $empleado->telefono_01 . "*" . $empleado->direccion; ?>
+
+                                      <td>
+                                          <button type="button" class="btn btn-success btn-check-empleado" value="<?php echo $dataempleado ?>"><span class="fa fa-check"></span></button>
                                       </td>
                                   </tr>
                               <?php endforeach; ?>

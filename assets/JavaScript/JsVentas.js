@@ -56,6 +56,14 @@ $(document).ready(function () {
 		$("#cliente").val(infocliente[1]);
 		$("#modal-default").modal("hide");
 	});
+	$(document).on("click", ".btn-check", function () {
+
+		empleado = $(this).val();
+		infocliente = empleado.split("*");
+		$("#idcliente").val(infocliente[0]);
+		$("#cliente").val(infocliente[1] + ' ' + infocliente[2]);
+		$("#modal-empleados").modal("hide");
+	});
 	$(document).on("click", ".btn-check-producto", function () {
 
 		producto = $(this).val();
@@ -112,7 +120,7 @@ $(document).ready(function () {
 			html += "<td>" + infoproducto[2] + "</td>";
 			html += "<td><input type='hidden' name = 'precios[]' value ='" + infoproducto[3] + "'>" + infoproducto[3] + "</td>";
 			html += "<td>" + infoproducto[4] + "</td>";
-			html += "<td><input type = 'number' class='cantidades' name = 'cantidades[]' value = '1'></td>";
+			html += "<td><input type = 'number' class='cantidades' min = '0' max = '" + infoproducto[4] + "' name = 'cantidades[]' value = '1'></td>";
 			html += "<td><input type ='hidden' name = 'importes[]' value ='" + infoproducto[3] + "'><p>" + infoproducto[3] + "</p></td>";
 			html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fa fa-remove'></span></button></td>";
 			html += "</tr>";
@@ -201,6 +209,7 @@ function generarNumero(numero) {
 		return '00000' + (Number(numero) + 1);
 	}
 }
+
 function agregarProducto() {
 	data = $('#btn-agregar').val();
 	if (data != '') {
@@ -222,4 +231,3 @@ function agregarProducto() {
 		alert("seleccione un producto");
 	}
 }
-

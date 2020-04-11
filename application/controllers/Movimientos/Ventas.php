@@ -26,6 +26,7 @@ class Ventas extends BaseController
             "tipocomprobantes" => $this->Ventas_model->getComprobantes(),
             "clientes" => $this->Clientes_model->getClientes(),
             "productos" => $this->Ventas_model->getProcutosTodos(),
+            "empleados" => $this->Empleado_model->getEmpleados(),
         );
         $this->loadView('Ventas', '/form/admin/ventas/add', $data);
     }
@@ -53,6 +54,7 @@ class Ventas extends BaseController
         $idusuario = $this->session->userdata('id_usuarios');
         $num_documento = $this->input->post('numero');
         $serie = $this->input->post('serie');
+        $idempleado = $this->input->post('idempleado');
 
         $idproductos = $this->input->post('idproductos');
         $precios = $this->input->post('precios');
@@ -62,62 +64,23 @@ class Ventas extends BaseController
         //Se obtione el id de los datos de la empresa que este en vigencia.
         $datosEmpresa = $this->Empresa_model->getEmpresa();
         $id_empresa = $datosEmpresa->id_empresa;
-        $datosFacturaEmpresa = $this->Empresa_model->getDatosFactura();
 
-        //Se comprueba que sea factura el comprobante
-        if ($idcomprobante == $datosFacturaEmpresa->id_tipo_comprobante) {
-            //Se genera el codigo de control de la factura
-            $datoscliente = $this->Clientes_model->getCliente($idcliente);
-            $fecha_codigo = str_replace('-', '', $fecha);
-            $controlCode = new ControlCode();
-            $codigoControl = $controlCode->generate($datosFacturaEmpresa->numero_autorizacion, $num_documento, $datoscliente->num_documento, $fecha_codigo, $total, $datosFacturaEmpresa->llave_dosificada);
-            //Se Genera el codigo QR 
-            $fechaQr = date("d/m/Y", strtotime($fecha));
-            $qr = new QR_BarCode();
-            $qr->text($datosFacturaEmpresa->nit_ci . '|' . $num_documento . '|' . $datosFacturaEmpresa->numero_autorizacion . '|' . $fecha . '|' . $fechaQr . '|' . $total . '|' . $total . '|' . $codigoControl . '|' . $datoscliente->num_documento . '|0|0|0|' . $descuento);
-            $qr->qrCode(200, 'assets/img/Codigos_Qr/' . $codigoControl . '.png');
-            //Se llena la data de la factura
-            $data = array(
-                'id_usuarios' => $idusuario,
-                'id_clientes' => $idcliente,
-                'id_tipo_comprobante' => $idcomprobante,
-                'id_empresa' => $id_empresa,
-                'subTotal' => $total,
-                'importeTotal' => $total,
-                'importe_base_credito_fiscal' => $total,
-                'importeICE' => '0',
-                'importeExento' => '0',
-                'codigo_control' => $codigoControl,
-                'codigo_qr' => 'assets/img/Codigos_Qr/' . $codigoControl . '.png',
-                'fecha' => $fecha,
-                'iva' => $igv,
-                'it' => $igv * 0.03,
-                'descuentoTotal' => $descuento,
-                'num_documento' => $num_documento,
-                'serie' => $serie,
-                'estado' => 'V',
-            );
-        } else {
-            $data = array(
-                'id_usuarios' => $idusuario,
-                'id_clientes' => $idcliente,
-                'id_tipo_comprobante' => $idcomprobante,
-                'id_empresa' => $id_empresa,
-                'importeNeto' => $subtotal,
-                'importeTotal' => $total,
-                'importe_base_credito_fiscal' => '',
-                'importeICE' => '',
-                'importeExento' => '',
-                'codigo_control' => '',
-                'fecha' => $fecha,
-                'iva' => $igv,
-                'it' => $total * 0.03,
-                'descuentoTotal' => $descuento,
-                'num_documento' => $num_documento,
-                'serie' => $serie,
-                'estado' => 'V',
-            );
-        }
+        $data = array(
+            'id_usuarios' => $idusuario,
+            'id_clientes' => $idcliente,
+            'id_tipo_comprobante' => $idcomprobante,
+            'id_empresa' => $id_empresa,
+            'subTotal' => $subtotal,
+            'importeTotal' => $total,
+            'fecha' => $fecha,
+            'iva' => $igv,
+            'it' => $total * 0.03,
+            'descuentoTotal' => $descuento,
+            'num_documento' => $num_documento,
+            'serie' => $serie,
+            'estado' => 'V',
+        );
+
 
 
         if ($this->Ventas_model->guardarVentas($data)) {

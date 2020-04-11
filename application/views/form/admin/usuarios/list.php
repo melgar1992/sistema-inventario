@@ -60,14 +60,14 @@
 
                                      </div>
                                  </div>
-                                 <div class="form-group">
+                                 <div class="form-group <?php echo !empty(form_error("email")) ? 'has-error' : ''; ?>">
                                      <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span></label>
                                      <div class="col-md-6 col-sm-6 col-xs-12">
                                          <input type="text" name="email" id="email" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba el Email">
 
                                      </div>
                                  </div>
-                                 <div class="form-group">
+                                 <div class="form-group <?php echo !empty(form_error("username")) ? 'has-error' : ''; ?>">
                                      <label for="username" class="control-label col-md-3 col-sm-3 col-xs-12">Usuario <span class="required">*</span></label>
                                      <div class="col-md-6 col-sm-6 col-xs-12">
                                          <input type="text" name="username" id="username" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba el Usuario">

@@ -68,7 +68,7 @@ class Ventas_model extends CI_Model
     }
     public function getProcutosTodos()
     {
-        $this->db->select('id_productos, codigo, nombre, precio, stock');
+        $this->db->select('*');
         $this->db->where('estado', '1');
         return $this->db->get('productos')->result();
     }
