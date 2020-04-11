@@ -65,6 +65,7 @@ class Empleado extends BaseController
     {
         $data = array(
             'Empleado' => $this->Empleado_model->getEmpleado($id_empleados),
+            'tipodocumentos'=>$this->Empleado_model->getTipoDocumentos(),
         );
 
         $this->loadView('Empleados', '/form/admin/empleado/editar', $data);
@@ -104,6 +105,7 @@ class Empleado extends BaseController
 
         if ($this->form_validation->run()) {
             $datos= array(
+                'id_tipo_documento'=>$tipodocumento,
                 'nombre' => $nombres,
                 'apellidos' => $apellidos,
                 'telefono_01' => $telefono1,
@@ -113,7 +115,7 @@ class Empleado extends BaseController
                 'estado' => '1',
             );
             
-            if ($this->Empleado_model->actualizar($id_empleados, $tipodocumento, $datos)) {
+            if ($this->Empleado_model->actualizar($id_empleados, $datos)) {
                 redirect(base_url() . "Mantenimiento/Empleado");
 
             } else {
@@ -124,13 +126,13 @@ class Empleado extends BaseController
             $this->editar($id_empleados);
         }
     }
-    public function borrar($id_usuarios)
+    public function borrar($id_empleados)
     {
+
         $datos = array(
-            'estado' => '0' ,
-            'fecha_salida' => date('Y-m-d') ,
-     );
-        $this->Usuario_model->borrar($id_usuarios, $datos);
-        echo 'Formularios/Usuarios';
+            'estado' => '0',
+        );
+        $this->Empleado_model->borrar($id_empleados, $datos);
+        echo 'Mantenimiento/Empleado';
     }
 }

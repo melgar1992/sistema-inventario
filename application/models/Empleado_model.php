@@ -58,19 +58,17 @@ class Empleado_model extends CI_Model
             return false;
         }
     }
-    public function actualizar($id_empleados, $tipodocumento, $datos)
+    public function actualizar($id_empleados, $datos)
     {
-        $this->db->where('nombre', $tipodocumento);
-        $tipodocumento = $this->db->get('tipodocumento')->row();
-        $datos['id_tipo_documento'] = $tipodocumento->id_tipo_documento;
+       
 
         $this->db->where('id_empleados', $id_empleados);
         return $this->db->update('empleados', $datos);
     }
-    public function borrar($id_usuarios, $datos)
+    public function borrar($id_empleados, $datos)
     {
-        $this->db->where('id_usuarios', $id_usuarios);
-        return $this->db->update('usuarios', $datos);
+        $this->db->where('id_empleados', $id_empleados);
+        return $this->db->update('empleados', $datos);
     }
     
 }
