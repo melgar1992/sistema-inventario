@@ -75,6 +75,18 @@
                           <?php echo form_error("direccion", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                       </div>
+                      <div class="form-group <?php echo !empty(form_error("tipodocumento")) ? 'has-error' : ''; ?>">
+                         <label for="tipodocumento" class="control-label col-md-4 col-sm-3 col-xs-12">Tipo de Documento: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <select name="tipodocumento" id="tipodocumento" required class="form-control col-md-3 col-xs-12">
+                                 <option value=""></option>
+                                 <?php foreach ($tipodocumentos as $tipodocumento) : ?>
+                                     <option value="<?php echo $tipodocumento->id_tipo_documento; ?>"<?php echo set_select("tipodocumento",$tipodocumento->id_tipo_documento);?>><?php echo $tipodocumento->nombre; ?></option>
+                                 <?php endforeach; ?>
+                             </select>
+                             <?php echo form_error("tipo_documento", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                         </div>
+                     </div>
                       <div class="form-group <?php echo !empty(form_error("num_documento")) ? 'has-error' : ''; ?>">
                         <label for="num_documento" class="control-label col-md-4 col-sm-3 col-xs-12">Numero de Documento:<span class="required">*</span></label>
                         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -83,20 +95,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group">
-                        <label for="tipo_documento" class="control-label col-md-4 col-sm-3 col-xs-12">Tipo documento: </label>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                          <select id="tipo_documento" required name="tipo_documento" class="form-control col-md-3 col-xs-12">
-                            <option value=""></option>
-                            <option value="ci">Carnet Identidad</option>
-                            <option value="licencia conducir">Licencia de conducir</option>
-                           
-
-                          </select>
-                          <?php echo form_error("tipo_documento", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                        </div>
-                      </div>
-
+                    
 
                       <div class="ln_solid"></div>
 
@@ -152,8 +151,9 @@
                                       <td><?php echo $Empleado->telefono_01; ?></td>
                                       <td><?php echo $Empleado->telefono_02; ?></td>
                                       <td><?php echo $Empleado->direccion; ?></td>
+                                      <td><?php echo $Empleado->tipodocumento; ?></td>
                                       <td><?php echo $Empleado->num_documento; ?></td>
-                                      <td><?php echo $Empleado->tipo_documento; ?></td>
+                                      
 
 
                                       <td>
