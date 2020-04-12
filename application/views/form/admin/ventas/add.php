@@ -67,7 +67,7 @@
                                               <label for="">Cliente:</label>
                                               <div class="input-group">
                                                   <input type="hidden" name="idcliente" id="idcliente">
-                                                  <input type="text" class="form-control" disabled="disabled" id="cliente">
+                                                  <input type="text" class="form-control" readonly="readonly" required id="cliente">
                                                   <span class="input-group-btn">
                                                       <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default"><span class="fa fa-search"></span> Buscar</button>
                                                   </span>
@@ -85,13 +85,13 @@
                                       <div class="form-group">
                                           <div class="col-md-3">
                                               <label for="proyecto">Proyecto</label>
-                                              <input type="text" name="proyecto" id="proyecto" class="form-control" require>
+                                              <input type="text" name="proyecto" id="proyecto" class="form-control" required>
                                           </div>
                                           <div class="col-md-3">
                                               <label for="">Empleado a cargo:</label>
                                               <div class="input-group">
                                                   <input type="hidden" name="idempleado" id="idempleado">
-                                                  <input type="text" class="form-control" disabled="disabled" id="empleado">
+                                                  <input type="text" class="form-control" readonly="readonly" required id="empleado">
                                                   <span class="input-group-btn">
                                                       <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-empleados"><span class="fa fa-search"></span> Buscar</button>
                                                   </span>
