@@ -124,13 +124,7 @@
                                         <?php echo form_error("fecha_ini", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
-                                <div class="form-group <?php echo !empty(form_error("fecha_fin")) ? 'has-error' : ''; ?>">
-                                    <label for="fecha_fin" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha baja del producto</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="date" name="fecha_fin" value="<?php echo set_value('fecha_fin') ?>" id="fecha_fin"  placeholder="" class="form-group col-md-7 col-xs-12">
-                                        <?php echo form_error("fecha_fin", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                                    </div>
-                                </div>
+                                
                                 <br>
                                 <br>
 
@@ -155,6 +149,9 @@
                                                 <th>Codigo</th>
                                                 <th>Nombres</th>
                                                 <th>Descripcion</th>
+                                                <th>Talla</th>
+                                                <th>Color</th>
+                                                <Th>Marca</Th>
                                                 <th>Precio</th>
                                                 <th>Stock</th>
                                                 <th>Categoria</th>
@@ -170,6 +167,9 @@
                                                         <td><?php echo $productos->codigo; ?></td>
                                                         <td><?php echo $productos->nombre; ?></td>
                                                         <td><?php echo $productos->descripcion; ?></td>
+                                                        <td><?php echo $productos->talla; ?></td>
+                                                        <td><?php echo $productos->color; ?></td>
+                                                        <td><?php echo $productos->marca; ?></td>
                                                         <td><?php echo $productos->precio; ?></td>
                                                         <td><?php echo $productos->stock; ?></td>
                                                         <td><?php echo $productos->categoria; ?></td>

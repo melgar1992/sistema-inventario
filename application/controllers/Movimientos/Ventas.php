@@ -63,35 +63,42 @@ class Ventas extends BaseController
 
         //Se obtione el id de los datos de la empresa que este en vigencia.
         $datosEmpresa = $this->Empresa_model->getEmpresa();
-        $id_empresa = $datosEmpresa->id_empresa;
-
-        $data = array(
-            'id_usuarios' => $idusuario,
-            'id_clientes' => $idcliente,
-            'id_tipo_comprobante' => $idcomprobante,
-            'id_empresa' => $id_empresa,
-            'subTotal' => $subtotal,
-            'importeTotal' => $total,
-            'fecha' => $fecha,
-            'iva' => $igv,
-            'it' => $total * 0.03,
-            'descuentoTotal' => $descuento,
-            'num_documento' => $num_documento,
-            'serie' => $serie,
-            'estado' => 'V',
-        );
-
-
-
-        if ($this->Ventas_model->guardarVentas($data)) {
-
-            $idVenta = $this->Ventas_model->ultimoID();
-            $this->actualizarComprobante($idcomprobante);
-            $this->guardar_detalle($idproductos, $idVenta, $precios, $cantidades, $importes);
-            redirect(base_url() . 'Movimientos/ventas');
+        if (isset($datosEmpresa)) {
+            $id_empresa = $datosEmpresa->id_empresa;
+            $data = array(
+                'id_usuarios' => $idusuario,
+                'id_clientes' => $idcliente,
+                'id_tipo_comprobante' => $idcomprobante,
+                'id_empresa' => $id_empresa,
+                'id_empleados' => $idempleado,
+                'subTotal' => $subtotal,
+                'importeTotal' => $total,
+                'fecha' => $fecha,
+                'iva' => $igv,
+                'descuentoTotal' => $descuento,
+                'num_documento' => $num_documento,
+                'serie' => $serie,
+                'estado' => '1',
+            );
+    
+    
+    
+            if ($this->Ventas_model->guardarVentas($data)) {
+    
+                $idVenta = $this->Ventas_model->ultimoID();
+                $this->actualizarComprobante($idcomprobante);
+                $this->guardar_detalle($idproductos, $idVenta, $precios, $cantidades, $importes);
+                redirect(base_url() . 'Movimientos/ventas');
+            } else {
+                redirect(base_url() . 'Movimientos/ventas/add');
+            }
         } else {
+            $this->session->set_flashdata('error','Tiene que configurar los datos de la empresa primero!');
             redirect(base_url() . 'Movimientos/ventas/add');
+            
         }
+            
+       
     }
     protected function actualizarComprobante($idcomprobante)
     {

@@ -130,13 +130,7 @@
                                         <?php echo form_error("fecha_ini", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
-                                <div class="form-group <?php echo !empty(form_error("fecha_fin")) ? 'has-error' : ''; ?>">
-                                    <label for="fecha_fin" class="control-label col-md-3 col-sm-3 col-xs-12">fecha fin </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="date" value="<?php echo !empty(form_error("fecha_fin")) ? set_value('fecha_fin') : $producto->fecha_salida ?>" name="fecha_fin" id="fecha_fin" class="form-group col-md-7 col-xs-12">
-                                        <?php echo form_error("fecha_fin", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                                    </div>
-                                </div>
+                                
                                 <br>
                                 <br>
 

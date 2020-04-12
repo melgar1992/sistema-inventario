@@ -70,7 +70,7 @@
                                  <div class="form-group">
                                      <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Correo electronico <span class="required">*</span></label>
                                      <div class="col-md-8 col-sm-6 col-xs-12">
-                                         <input type="text" name="email" value="<?php echo !empty(set_value("email")) ? set_value('email') : !empty($Configuracion) ? $Configuracion->email : ''; ?>" id="email" required="required" class="form-group col-md-7 col-xs-12" placeholder="ejemlp@hotmail.com">
+                                         <input type="email" name="email" value="<?php echo !empty(set_value("email")) ? set_value('email') : !empty($Configuracion) ? $Configuracion->email : ''; ?>" id="email" required="required" class="form-group col-md-7 col-xs-12" placeholder="ejemlp@hotmail.com">
 
                                      </div>
                                  </div>

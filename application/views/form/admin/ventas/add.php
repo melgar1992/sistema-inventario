@@ -26,6 +26,13 @@
                           <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
+                      <?php if ($this->session->flashdata("error")) : ?>
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dissmiss="alert" aria-hidden="true"></button>
+                                    <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
+
+                                </div>
+                            <?php endif; ?>
                           <div class="row">
                               <div class="col-md-12">
 
@@ -43,10 +50,7 @@
                                               </select>
                                               <input type="hidden" id="idcomprobante" name="idcomprobante">
                                               <input type="hidden" id="igv">
-                                              <input type="hidden" id="numero_autorizacion">
-                                              <input type="hidden" id="nit_ci">
-                                              <input type="hidden" id="llave_dosificacion">
-                                              <input type="hidden" id="fecha_limite">
+                                              
                                           </div>
                                           <div class="col-md-3">
                                               <label for="">Serie:</label>
@@ -84,7 +88,7 @@
                                               <input type="text" name="proyecto" id="proyecto" class="form-control" require>
                                           </div>
                                           <div class="col-md-3">
-                                              <label for="">Empleado:</label>
+                                              <label for="">Empleado a cargo:</label>
                                               <div class="input-group">
                                                   <input type="hidden" name="idempleado" id="idempleado">
                                                   <input type="text" class="form-control" disabled="disabled" id="empleado">
@@ -315,10 +319,10 @@
                                       <td><?php echo $empleado->id_empleados; ?></td>
                                       <td><?php echo $empleado->nombre; ?></td>
                                       <td><?php echo $empleado->apellidos; ?></td>
-                                      <td><?php echo $empleado->tipo_documento; ?></td>
+                                      <td><?php echo $empleado->tipodocumento; ?></td>
                                       <td><?php echo $empleado->num_documento; ?></td>
                                       <td><?php echo $empleado->telefono_01; ?></td>
-                                      <?php $dataempleado = $empleado->id_empleados . "*" . $empleado->nombre . "*" . $empleado->apellidos . "*" . $empleado->tipo_documento . "*" . $empleado->num_documento . "*" . $empleado->telefono_01 . "*" . $empleado->direccion; ?>
+                                      <?php $dataempleado = $empleado->id_empleados . "*" . $empleado->nombre . "*" . $empleado->apellidos . "*" . $empleado->tipodocumento . "*" . $empleado->num_documento . "*" . $empleado->telefono_01 . "*" . $empleado->direccion; ?>
 
                                       <td>
                                           <button type="button" class="btn btn-success btn-check-empleado" value="<?php echo $dataempleado ?>"><span class="fa fa-check"></span></button>

@@ -61,7 +61,7 @@
                                                       <td><?php echo $venta->tipocomprobante; ?></td>
                                                       <td><?php echo $venta->num_documento; ?></td>
                                                       <td><?php echo $venta->fecha; ?></td>
-                                                      <td><?php echo $venta->total; ?></td>
+                                                      <td><?php echo $venta->importeTotal; ?></td>
                                                       <td>
                                                           <button type="button" class="btn btn-info btn-view-venta" data-toggle="modal" data-target="#modal-default" value="<?php echo $venta->id_ventas ?>"><span class="fa fa-search"></span></button>
                                                       </td>
