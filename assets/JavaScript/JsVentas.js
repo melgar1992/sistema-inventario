@@ -30,10 +30,7 @@ $(document).ready(function () {
 			$('#igv').val(infocomprobante[2]);
 			$('#serie').val(infocomprobante[3]);
 			$('#numero').val(infocomprobante[1]);
-			$('#numero_autorizacion').val(infocomprobante[4]);
-			$('#nit_ci').val(infocomprobante[5]);
-			$('#llave_dosificacion').val(infocomprobante[6]);
-			$('#fecha_limite').val(infocomprobante[7]);
+
 		} else {
 			$('#idcombrobante').val(null);
 			$('#igv').val(null);
@@ -56,12 +53,12 @@ $(document).ready(function () {
 		$("#cliente").val(infocliente[1]);
 		$("#modal-default").modal("hide");
 	});
-	$(document).on("click", ".btn-check", function () {
+	$(document).on("click", ".btn-check-empleado", function () {
 
 		empleado = $(this).val();
 		infocliente = empleado.split("*");
-		$("#idcliente").val(infocliente[0]);
-		$("#cliente").val(infocliente[1] + ' ' + infocliente[2]);
+		$("#idempleado").val(infocliente[0]);
+		$("#empleado").val(infocliente[1] + ' ' + infocliente[2]);
 		$("#modal-empleados").modal("hide");
 	});
 	$(document).on("click", ".btn-check-producto", function () {

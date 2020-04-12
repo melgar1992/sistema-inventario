@@ -31,7 +31,7 @@ class Productos extends BaseController
         $talla = $this->input->post("talla");
         $marca = $this->input->post("marca");
         $fecha_ini = $this->input->post("fecha_ini");
-        $fecha_fin = $this->input->post("fecha_fin");
+
 
         $this->form_validation->set_rules("codigo", "Codigo", "required|is_unique[productos.codigo]");
         $this->form_validation->set_rules("nombre", "Nombre", "required");
@@ -58,7 +58,6 @@ class Productos extends BaseController
                 'talla' => $talla,
                 'marca' => $marca,
                 'fecha_registro' => $fecha_ini,
-                'fecha_salida' => $fecha_fin,
                 'estado' => "1"
             );
 
@@ -94,7 +93,7 @@ class Productos extends BaseController
         $talla = $this->input->post("talla");
         $marca = $this->input->post("marca");
         $fecha_ini = $this->input->post("fecha_ini");
-        $fecha_fin = $this->input->post("fecha_fin");
+
 
         $productoActual = $this->Productos_model->getProducto($id_producto);
         if ($codigo == $productoActual->codigo) {
@@ -103,7 +102,7 @@ class Productos extends BaseController
             $unique = '|is_unique[productos.codigo]';
         }
 
-        $this->form_validation->set_rules("codigo", "Codigo", "required" .$unique);
+        $this->form_validation->set_rules("codigo", "Codigo", "required" . $unique);
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("precio", "Precio", "required");
         $this->form_validation->set_rules("stock", "Stock", "required");
@@ -129,7 +128,7 @@ class Productos extends BaseController
                 'talla' => $talla,
                 'marca' => $marca,
                 'fecha_registro' => $fecha_ini,
-                'fecha_salida' => $fecha_fin,
+
                 'estado' => "1"
             );
 
@@ -138,8 +137,7 @@ class Productos extends BaseController
             } else {
                 $this->session->set_flashdata("error", "No se pudo guardar la informacion");
             }
-        }
-        else {
+        } else {
             $this->editar($id_producto);
         }
     }
