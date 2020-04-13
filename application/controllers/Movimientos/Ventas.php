@@ -147,6 +147,18 @@ class Ventas extends BaseController
             redirect(base_url() . 'Movimientos/ventas/add');
         }
     }
+    public function editar($id_ventas)
+    {
+        $data = array(
+            "tipocomprobantes" => $this->Ventas_model->getComprobantes(),
+            "clientes" => $this->Clientes_model->getClientes(),
+            "productos" => $this->Ventas_model->getProcutosTodos(),
+            "empleados" => $this->Empleado_model->getEmpleados(),
+            "venta" => $this->Ventas_model->getVenta($id_ventas),
+            "detalle_venta" => $this->Ventas_model->getDetalle($id_ventas),
+        );
+        $this->loadView('Ventas', '/form/admin/ventas/editar', $data);
+    }
     protected function actualizarComprobante($idcomprobante)
     {
         $comprobanteActual = $this->Ventas_model->getComprobante($idcomprobante);
