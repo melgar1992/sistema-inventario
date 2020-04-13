@@ -68,9 +68,11 @@ class Ventas_model extends CI_Model
     }
     public function getProcutosTodos()
     {
-        $this->db->select('*');
-        $this->db->where('estado', '1');
-        return $this->db->get('productos')->result();
+        $this->db->select('p.*, c.nombre as categoria');
+        $this->db->from('productos p');
+        $this->db->join('categorias c', 'c.id_categorias = p.id_categorias');
+        $this->db->where('p.estado', '1');
+        return $this->db->get()->result();
     }
     public function getProductos($valor)
     {

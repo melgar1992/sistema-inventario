@@ -49,6 +49,8 @@
                                               <th>Numero del Comprobante</th>
                                               <th>Fecha</th>
                                               <th>Total</th>
+                                              <th>Nombre proyecto</th>
+                                              <th>Estado proyecto</th>
                                               <th>Opciones</th>
                                           </tr>
                                       </thead>
@@ -62,6 +64,8 @@
                                                       <td><?php echo $venta->num_documento; ?></td>
                                                       <td><?php echo $venta->fecha; ?></td>
                                                       <td><?php echo $venta->importeTotal; ?></td>
+                                                      <td><?php echo $venta->proyecto; ?></td>
+                                                      <td><?php echo $venta->fase_proyecto; ?></td>
                                                       <td>
                                                           <button type="button" class="btn btn-info btn-view-venta" data-toggle="modal" data-target="#modal-default" value="<?php echo $venta->id_ventas ?>"><span class="fa fa-search"></span></button>
                                                       </td>

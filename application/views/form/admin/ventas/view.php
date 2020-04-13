@@ -51,19 +51,19 @@
 			<tfoot>
 				<tr>
 					<td colspan="4" class="text-right"><strong>Subtotal:</strong></td>
-					<td><?php echo $venta->subtotal?></td>
+					<td><?php echo $venta->subTotal?></td>
 				</tr>
 				<tr>
-					<td colspan="4" class="text-right"><strong>IGV:</strong></td>
-					<td><?php echo $venta->igv?></td>
+					<td colspan="4" class="text-right"><strong>IVA:</strong></td>
+					<td><?php echo $venta->iva?></td>
 				</tr>
 				<tr>
 					<td colspan="4" class="text-right"><strong>Descuento:</strong></td>
-					<td><?php echo $venta->descuento?></td>
+					<td><?php echo $venta->descuentoTotal?></td>
 				</tr>
 				<tr>
 					<td colspan="4" class="text-right"><strong>Total:</strong></td>
-					<td><?php echo $venta->total?></td>
+					<td><?php echo $venta->importeTotal?></td>
 				</tr>
 			</tfoot>
 		</table>

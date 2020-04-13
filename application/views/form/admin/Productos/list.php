@@ -45,17 +45,22 @@
                                 </div>
 
                                 <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
-                                    <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
+                                    <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="nombre" value="<?php echo set_value('nombre') ?>" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="Nombre del producto">
                                         <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span></label>
+                                    <label for="descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Estado <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="descripcion" id="descripcion" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba una descripcion breve">
-
+                                        <select name="descripcion" id="descripcion" requiered='requiered' class="form-group col-md-7 col-xs-12">
+                                            <option value="">Seleccione</option>
+                                            <option value="Nuevo">Nuevo</option>
+                                            <option value="Usado">Usado</option>
+                                            <option value="Desgastado">Desgastado</option>
+                                            <option value="Falla">Falla</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group <?php echo !empty(form_error("precio_compra")) ? 'has-error' : ''; ?>">
@@ -106,7 +111,7 @@
                                 <div class="form-group <?php echo !empty(form_error("talla")) ? 'has-error' : ''; ?>">
                                     <label for="talla" class="control-label col-md-3 col-sm-3 col-xs-12">Talla<span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="talla" value="<?php echo set_value('talla') ?>" id="talla" required="required" placeholder="Talla del producto" class="form-group col-md-7 col-xs-12">
+                                        <input type="text" name="talla" onkeyup="mayus(this);" value="<?php echo set_value('talla') ?>" id="talla" required="required" placeholder="Talla del producto" class="form-group col-md-7 col-xs-12">
                                         <?php echo form_error("talla", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
@@ -124,7 +129,7 @@
                                         <?php echo form_error("fecha_ini", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
-                                
+
                                 <br>
                                 <br>
 
@@ -147,8 +152,8 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Codigo</th>
-                                                <th>Nombres</th>
                                                 <th>Descripcion</th>
+                                                <th>Estado Producto</th>
                                                 <th>Talla</th>
                                                 <th>Color</th>
                                                 <Th>Marca</Th>

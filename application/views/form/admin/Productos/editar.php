@@ -47,16 +47,21 @@
                                 </div>
 
                                 <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
-                                    <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
+                                    <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" value="<?php echo !empty(form_error("nombre")) ? set_value('nombre') : $producto->nombre ?>" name="nombre" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="Nombre de la Categoria">
+                                        <input type="text" value="<?php echo !empty(form_error("nombre")) ? set_value('nombre') : $producto->nombre ?>" name="nombre" id="nombre" required="required" class="form-group col-md-7 col-xs-12" placeholder="nombre del Producto">
                                         <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span></label>
+                                    <label for="descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Estado : <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" value="<?php echo $producto->descripcion ?>" name="descripcion" id="descripcion" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba una descripcion breve">
+                                        <select name="descripcion" id="descripcion" required="required" class="form-group col-md-7 col-xs-12">
+                                            <option value="Nuevo" <?php echo ($producto->descripcion == "Nuevo") ? "selected" : '' ?>>Nuevo</option>
+                                            <option value="Usado" <?php echo ($producto->descripcion == "Usado") ? "selected" : '' ?>>Usado</option>
+                                            <option value="Desgastado" <?php echo ($producto->descripcion == "Desgastado") ? "selected" : '' ?>>Desgastado</option>
+                                            <option value="Falla" <?php echo ($producto->descripcion == "Falla") ? "selected" : '' ?>>Falla</option>
+                                        </select>
 
                                     </div>
                                 </div>
@@ -130,7 +135,7 @@
                                         <?php echo form_error("fecha_ini", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
-                                
+
                                 <br>
                                 <br>
 

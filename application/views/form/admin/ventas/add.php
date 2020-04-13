@@ -26,13 +26,13 @@
                           <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
-                      <?php if ($this->session->flashdata("error")) : ?>
-                                <div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dissmiss="alert" aria-hidden="true"></button>
-                                    <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
+                          <?php if ($this->session->flashdata("error")) : ?>
+                              <div class="alert alert-danger alert-dismissable">
+                                  <button type="button" class="close" data-dissmiss="alert" aria-hidden="true"></button>
+                                  <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
 
-                                </div>
-                            <?php endif; ?>
+                              </div>
+                          <?php endif; ?>
                           <div class="row">
                               <div class="col-md-12">
 
@@ -50,7 +50,7 @@
                                               </select>
                                               <input type="hidden" id="idcomprobante" name="idcomprobante">
                                               <input type="hidden" id="igv">
-                                              
+
                                           </div>
                                           <div class="col-md-3">
                                               <label for="">Serie:</label>
@@ -84,8 +84,16 @@
                                       </div>
                                       <div class="form-group">
                                           <div class="col-md-3">
-                                              <label for="proyecto">Proyecto</label>
+                                              <label for="proyecto">Nombre proyecto</label>
                                               <input type="text" name="proyecto" id="proyecto" class="form-control" required>
+                                          </div>
+                                          <div class="col-md-3">
+                                              <label for="fase_proyecto" class="">Fase de proyecto</label>
+                                              <select name="fase_proyecto" id="fase_proyecto" requiered='requiered' class="form-control col-md-7 col-xs-12">
+                                                  <option value="">Seleccione</option>
+                                                  <option value="En ejecucion">En ejecucion</option>
+                                                  <option value="Completado">Completado</option>
+                                              </select>
                                           </div>
                                           <div class="col-md-3">
                                               <label for="">Empleado a cargo:</label>
@@ -97,13 +105,14 @@
                                                   </span>
                                               </div><!-- /input-group -->
                                           </div>
+
                                       </div>
 
                                       <label for="Productos" class="col-md-12">Buscar y agregar productos o servicios</label>
                                       <br></br>
                                       <div class="form-group">
                                           <div class="col-md-4">
-                                              <label for="">Producto:</label>
+                                              <label for="">Descripcion:</label>
                                               <input type="text" class="form-control" id="producto">
                                           </div>
                                           <div class="col-md-4">
@@ -124,12 +133,12 @@
                                           <thead>
                                               <tr>
                                                   <th>Codigo</th>
-                                                  <th>Nombre</th>
+                                                  <th>Descripcion</th>
                                                   <th>Precio</th>
                                                   <th>Stock Max.</th>
                                                   <th>Cantidad</th>
                                                   <th>Importe</th>
-                                                  <th></th>
+                                                  <th>Opciones</th>
                                               </tr>
                                           </thead>
                                           <tbody>
@@ -166,6 +175,7 @@
 
                                       <div class="form-group">
                                           <div class="col-md-12">
+                                              <a class="btn btn-primary btn-flat" href="<?php echo site_url("Movimientos/Ventas") ?>" type="button">Volver</a>
                                               <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                                           </div>
 
@@ -245,13 +255,14 @@
                       <thead>
                           <tr>
                               <th>Codgio</th>
-                              <th>Nombre</th>
+                              <th>Descripcion</th>
+                              <th>Estado Producto</th>
+                              <th>Categoria</th>
                               <th>Precio</th>
                               <th>Stock</th>
                               <th>Lugar Almacenamiento</th>
                               <th>Color</th>
                               <th>Talla</th>
-                              <th>Marca</th>
                               <th>Opcion</th>
                           </tr>
                       </thead>
@@ -261,12 +272,14 @@
                                   <tr>
                                       <td><?php echo $producto->codigo; ?></td>
                                       <td><?php echo $producto->nombre; ?></td>
+                                      <td><?php echo $producto->descripcion; ?></td>
+                                      <td><?php echo $producto->categoria; ?></td>
                                       <td><?php echo $producto->precio; ?></td>
                                       <td><?php echo $producto->stock; ?></td>
                                       <td><?php echo $producto->lugar_almacenado; ?></td>
                                       <td><?php echo $producto->color; ?></td>
                                       <td><?php echo $producto->talla; ?></td>
-                                      <td><?php echo $producto->marca; ?></td>
+
                                       <?php $dataproducto = $producto->id_productos . "*" . $producto->codigo . "*" . $producto->nombre . "*" . $producto->precio . "*" . $producto->stock; ?>
 
                                       <td>

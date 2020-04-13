@@ -60,6 +60,9 @@
         }
 
       });
+      function mayus(e) {
+        e.value = e.value.toUpperCase();
+      }
     </script>
 
     <?php
