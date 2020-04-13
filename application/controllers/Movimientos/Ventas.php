@@ -69,78 +69,40 @@ class Ventas extends BaseController
 
 
         if ($this->form_validation->run()) {
-            if ($fase_proyecto != 'Completado') {
-                //Se obtione el id de los datos de la empresa que este en vigencia.
-                $datosEmpresa = $this->Empresa_model->getEmpresa();
-                if (isset($datosEmpresa)) {
-                    $id_empresa = $datosEmpresa->id_empresa;
-                    $data = array(
-                        'id_usuarios' => $idusuario,
-                        'id_clientes' => $idcliente,
-                        'id_tipo_comprobante' => $idcomprobante,
-                        'id_empresa' => $id_empresa,
-                        'id_empleados' => $idempleado,
-                        'subTotal' => $subtotal,
-                        'importeTotal' => $total,
-                        'proyecto' => $proyecto,
-                        'fecha' => $fecha,
-                        'iva' => $igv,
-                        'descuentoTotal' => $descuento,
-                        'num_documento' => $num_documento,
-                        'serie' => $serie,
-                        'fase_proyecto' => $fase_proyecto,
-                        'estado' => '1',
-                    );
+            //Se obtione el id de los datos de la empresa que este en vigencia.
+            $datosEmpresa = $this->Empresa_model->getEmpresa();
+            if (isset($datosEmpresa)) {
+                $id_empresa = $datosEmpresa->id_empresa;
+                $data = array(
+                    'id_usuarios' => $idusuario,
+                    'id_clientes' => $idcliente,
+                    'id_tipo_comprobante' => $idcomprobante,
+                    'id_empresa' => $id_empresa,
+                    'id_empleados' => $idempleado,
+                    'subTotal' => $subtotal,
+                    'importeTotal' => $total,
+                    'proyecto' => $proyecto,
+                    'fecha' => $fecha,
+                    'iva' => $igv,
+                    'descuentoTotal' => $descuento,
+                    'num_documento' => $num_documento,
+                    'serie' => $serie,
+                    'fase_proyecto' => $fase_proyecto,
+                    'estado' => '1',
+                );
 
-                    if ($this->Ventas_model->guardarVentas($data)) {
+                if ($this->Ventas_model->guardarVentas($data)) {
 
-                        $idVenta = $this->Ventas_model->ultimoID();
-                        $this->actualizarComprobante($idcomprobante);
-                        $this->guardar_detalle($idproductos, $idVenta, $precios, $cantidades, $importes);
-                        redirect(base_url() . 'Movimientos/ventas');
-                    } else {
-                        redirect(base_url() . 'Movimientos/ventas/add');
-                    }
+                    $idVenta = $this->Ventas_model->ultimoID();
+                    $this->actualizarComprobante($idcomprobante);
+                    $this->guardar_detalle($idproductos, $idVenta, $precios, $cantidades, $importes);
+                    redirect(base_url() . 'Movimientos/ventas');
                 } else {
-                    $this->session->set_flashdata('error', 'Tiene que configurar los datos de la empresa primero!');
                     redirect(base_url() . 'Movimientos/ventas/add');
                 }
             } else {
-                //Se obtione el id de los datos de la empresa que este en vigencia.
-                $datosEmpresa = $this->Empresa_model->getEmpresa();
-                if (isset($datosEmpresa)) {
-                    $id_empresa = $datosEmpresa->id_empresa;
-                    $data = array(
-                        'id_usuarios' => $idusuario,
-                        'id_clientes' => $idcliente,
-                        'id_tipo_comprobante' => $idcomprobante,
-                        'id_empresa' => $id_empresa,
-                        'id_empleados' => $idempleado,
-                        'subTotal' => $subtotal,
-                        'importeTotal' => $total,
-                        'proyecto' => $proyecto,
-                        'fecha' => $fecha,
-                        'iva' => $igv,
-                        'descuentoTotal' => $descuento,
-                        'num_documento' => $num_documento,
-                        'serie' => $serie,
-                        'fase_proyecto' => $fase_proyecto,
-                        'estado' => '1',
-                    );
-
-                    if ($this->Ventas_model->guardarVentas($data)) {
-
-                        $idVenta = $this->Ventas_model->ultimoID();
-                        $this->actualizarComprobante($idcomprobante);
-                        $this->guardar_detalle_no_atualizar($idproductos, $idVenta, $precios, $cantidades, $importes);
-                        redirect(base_url() . 'Movimientos/ventas');
-                    } else {
-                        redirect(base_url() . 'Movimientos/ventas/add');
-                    }
-                } else {
-                    $this->session->set_flashdata('error', 'Tiene que configurar los datos de la empresa primero!');
-                    redirect(base_url() . 'Movimientos/ventas/add');
-                }
+                $this->session->set_flashdata('error', 'Tiene que configurar los datos de la empresa primero!');
+                redirect(base_url() . 'Movimientos/ventas/add');
             }
         } else {
             $this->session->set_flashdata('error', 'Tiene que llenar los datos correctamente');
@@ -155,9 +117,104 @@ class Ventas extends BaseController
             "productos" => $this->Ventas_model->getProcutosTodos(),
             "empleados" => $this->Empleado_model->getEmpleados(),
             "venta" => $this->Ventas_model->getVenta($id_ventas),
-            "detalle_venta" => $this->Ventas_model->getDetalle($id_ventas),
+            "detalle_ventas" => $this->Ventas_model->getDetalle($id_ventas),
         );
         $this->loadView('Ventas', '/form/admin/ventas/editar', $data);
+    }
+    public function actualizar()
+    {
+        $idVenta = $this->input->post('id_ventas');
+        $fecha = $this->input->post('fecha');
+        $subtotal = $this->input->post('subtotal');
+        $igv = $this->input->post('igv');
+        $descuento = $this->input->post('descuento');
+        $total = $this->input->post('total');
+        $idcomprobante = $this->input->post('idcomprobante');
+        $idcliente = $this->input->post('idcliente');
+        $idusuario = $this->session->userdata('id_usuarios');
+        $num_documento = $this->input->post('numero');
+        $serie = $this->input->post('serie');
+        $idempleado = $this->input->post('idempleado');
+        $proyecto = $this->input->post('proyecto');
+        $fase_proyecto = $this->input->post('fase_proyecto');
+        $idproductos = $this->input->post('idproductos');
+        $precios = $this->input->post('precios');
+        $cantidades = $this->input->post('cantidades');
+        $importes = $this->input->post('importes');
+
+        $this->form_validation->set_rules('fecha', 'Fecha de la salida de inventario', 'required');
+        $this->form_validation->set_rules('idcliente', 'idcliente', 'required');
+        $this->form_validation->set_rules('idempleado', 'idempleado', 'required');
+
+
+
+        if ($this->form_validation->run()) {
+            if ($fase_proyecto != 'Completado') {
+
+
+
+                $data = array(
+                    'id_usuarios' => $idusuario,
+                    'id_clientes' => $idcliente,
+                    'id_tipo_comprobante' => $idcomprobante,
+                    'id_empleados' => $idempleado,
+                    'subTotal' => $subtotal,
+                    'importeTotal' => $total,
+                    'proyecto' => $proyecto,
+                    'fecha' => $fecha,
+                    'iva' => $igv,
+                    'descuentoTotal' => $descuento,
+                    'num_documento' => $num_documento,
+                    'serie' => $serie,
+                    'fase_proyecto' => $fase_proyecto,
+                    'estado' => '1',
+                );
+
+                if ($this->Ventas_model->actualizarVentas($idVenta, $data)) {
+                    $this->borrar_detalle($idVenta);
+                    $this->guardar_detalle($idproductos, $idVenta, $precios, $cantidades, $importes);
+                    redirect(base_url() . 'Movimientos/ventas');
+                } else {
+                    redirect(base_url() . 'Movimientos/ventas/editar/' + $idVenta);
+                }
+            } else {
+
+
+
+                $data = array(
+                    'id_usuarios' => $idusuario,
+                    'id_clientes' => $idcliente,
+                    'id_tipo_comprobante' => $idcomprobante,
+                    'id_empleados' => $idempleado,
+                    'subTotal' => $subtotal,
+                    'importeTotal' => $total,
+                    'proyecto' => $proyecto,
+                    'fecha' => $fecha,
+                    'iva' => $igv,
+                    'descuentoTotal' => $descuento,
+                    'num_documento' => $num_documento,
+                    'serie' => $serie,
+                    'fase_proyecto' => $fase_proyecto,
+                    'estado' => '1',
+                );
+
+                if ($this->Ventas_model->actualizarVentas($idVenta, $data)) {
+
+                    $this->borrar_detalle($idVenta);
+                    $this->guardar_detalle($idproductos, $idVenta, $precios, $cantidades, $importes);
+                    $detalle_actual = $this->Ventas_model->getDetalle($idVenta);
+                    foreach ($detalle_actual as $detalle) {
+                        $this->reponerProducto($detalle->id_productos, $detalle->cantidad);
+                    }
+                    redirect(base_url() . 'Movimientos/ventas');
+                } else {
+                    redirect(base_url() . 'Movimientos/ventas/editar/' + $idVenta);
+                }
+            }
+        } else {
+            $this->session->set_flashdata('error', 'Tiene que llenar los datos correctamente');
+            redirect(base_url() . 'Movimientos/ventas/add');
+        }
     }
     protected function actualizarComprobante($idcomprobante)
     {
@@ -166,19 +223,6 @@ class Ventas extends BaseController
             'cantidad' => $comprobanteActual->cantidad + 1,
         );
         $this->Ventas_model->actualizarComprobante($idcomprobante, $data);
-    }
-    protected function guardar_detalle_no_atualizar($idproductos, $idVenta, $precios, $cantidades, $importes)
-    {
-        for ($i = 0; $i < count($idproductos); $i++) {
-            $data = array(
-                'id_ventas' => $idVenta,
-                'id_productos' => $idproductos[$i],
-                'precio' => $precios[$i],
-                'cantidad' => $cantidades[$i],
-                'importe' => $importes[$i],
-            );
-            $this->Ventas_model->guardar_detalle($data);
-        }
     }
     protected function guardar_detalle($idproductos, $idVenta, $precios, $cantidades, $importes)
     {
@@ -194,6 +238,22 @@ class Ventas extends BaseController
             $this->actualizarProducto($idproductos[$i], $cantidades[$i]);
         }
     }
+    protected function borrar_detalle($idVenta)
+    {
+        $detalle_actual = $this->Ventas_model->getDetalle($idVenta);
+        foreach ($detalle_actual as $detalle) {
+            $this->reponerProducto($detalle->id_productos, $detalle->cantidad);
+            $this->Ventas_model->borrar_detalle($detalle->id_detalle_ventas);
+        }
+    }
+    protected function reponerProducto($idproducto, $cantidad)
+    {
+        $productoActual = $this->Productos_model->getProducto($idproducto);
+        $data = array(
+            'stock' => $productoActual->stock + $cantidad,
+        );
+        $this->Productos_model->actualizar($idproducto, $data);
+    }
     protected function actualizarProducto($idproducto, $cantidad)
     {
         $productoActual = $this->Productos_model->getProducto($idproducto);
@@ -202,6 +262,7 @@ class Ventas extends BaseController
         );
         $this->Productos_model->actualizar($idproducto, $data);
     }
+
     public function vista()
     {
         $id_venta = $this->input->post('id');

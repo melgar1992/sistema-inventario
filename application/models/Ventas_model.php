@@ -37,17 +37,18 @@ class Ventas_model extends CI_Model
     }
     public function getVenta($id)
     {
-        $this->db->select('v.*, c.nombres, c.direccion, c.telefono, c.num_documento as documento, tc.nombre as tipocomprobante');
+        $this->db->select('v.*, c.nombres, c.direccion, c.telefono, c.num_documento as documento, tc.nombre as tipocomprobante, c.nombres as nombre_cliente, e.nombre as nombre_empleado, e.apellidos as apellidos_empleado');
         $this->db->from('ventas v');
         $this->db->join('clientes c', 'v.id_clientes = c.id_clientes');
         $this->db->join('tipo_comprobante tc', 'v.id_tipo_comprobante = tc.id_tipo_comprobante');
+        $this->db->join('empleados e', 'v.id_empleados = e.id_empleados');
         $this->db->where("v.id_ventas", $id);
         $resultado = $this->db->get();
         return $resultado->row();
     }
     public function getDetalle($id)
     {
-        $this->db->select('dt.*, p.codigo, p.nombre ');
+        $this->db->select('dt.*, p.codigo, p.nombre, p.stock');
         $this->db->from('detalle_ventas dt');
         $this->db->join('productos p', 'dt.id_productos=p.id_productos');
         $this->db->where("dt.id_ventas", $id);
@@ -97,6 +98,11 @@ class Ventas_model extends CI_Model
     {
         return $this->db->insert('ventas', $data);
     }
+    public function actualizarVentas($id_venta, $data)
+    {
+        $this->db->where('id_ventas',$id_venta);
+        return $this->db->update('ventas',$data);
+    }
     public function ultimoID()
     {
         return $this->db->insert_id();
@@ -109,5 +115,10 @@ class Ventas_model extends CI_Model
     public function guardar_detalle($data)
     {
         $this->db->insert('detalle_ventas', $data);
+    }
+    public function borrar_detalle($id_detalle_venta)
+    {
+        $this->db->where('id_detalle_ventas',$id_detalle_venta);
+        $this->db->delete('detalle_ventas');
     }
 }

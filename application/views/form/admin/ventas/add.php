@@ -92,7 +92,7 @@
                                               <select name="fase_proyecto" id="fase_proyecto" requiered='requiered' class="form-control col-md-7 col-xs-12">
                                                   <option value="">Seleccione</option>
                                                   <option value="En ejecucion">En ejecucion</option>
-                                                  <option value="Completado">Completado</option>
+                                                  
                                               </select>
                                           </div>
                                           <div class="col-md-3">
