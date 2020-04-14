@@ -75,7 +75,7 @@
                                           </div>
                                           <div class="col-md-3">
                                               <label for="descuento">Descuento % :</label>
-                                              <input type="number" name="descuento_porcentaje" id="descuento_porcentaje" class="form-control">
+                                              <input type="number" min='0' max='100' name="descuento_porcentaje" id="descuento_porcentaje" class="form-control">
                                           </div>
                                           <div class="col-md-3">
                                               <label for="">Fecha:</label>

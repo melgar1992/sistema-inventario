@@ -38,7 +38,7 @@
 
                                  <form action="<?php echo base_url(); ?>movimientos/ventas/actualizar" method="POST" class="form-horizontal">
                                      <div class="form-group">
-                                         <input type="number" hidden="hidden" name="id_ventas" id="id_ventas" value="<?php echo $venta->id_ventas ?>" >
+                                         <input type="number" hidden="hidden" name="id_ventas" id="id_ventas" value="<?php echo $venta->id_ventas ?>">
                                          <div class="col-md-3">
                                              <label for="">Comprobante:</label>
                                              <select name="comprobantes" id="comprobantes" class="form-control" required>
@@ -82,7 +82,8 @@
                                          </div>
                                          <div class="col-md-3">
                                              <label for="descuento">Descuento % :</label>
-                                             <input type="number" name="descuento_porcentaje" value="<?php echo ($venta->descuentoTotal * 100) / $venta->importeTotal; ?>" id="descuento_porcentaje" class="form-control">
+                                             <input type="number" name="descuento_porcentaje" min='0' max='100'  id="descuento_porcentaje" class="form-control" value="<?php $des = (($venta->descuentoTotal * 100) / $venta->importeTotal);
+                                                                                                                        echo ($venta->importeTotal != 0) ? number_format($des)  : '';  ?>">
                                          </div>
                                          <div class="col-md-3">
                                              <label for="">Fecha:</label>
@@ -97,7 +98,7 @@
                                          <div class="col-md-3">
                                              <label for="fase_proyecto" class="">Fase de proyecto</label>
                                              <select name="fase_proyecto" id="fase_proyecto" requiered='requiered' class="form-control col-md-7 col-xs-12">
-                                                 <option value="">Seleccione</option>
+                                                 <option value="">Seleccione...</option>
                                                  <option value="En ejecucion" <?php echo ($venta->fase_proyecto == 'En ejecucion') ? 'selected' : ''; ?>>En ejecucion</option>
                                                  <option value="Completado" <?php echo ($venta->fase_proyecto == 'Completado') ? 'selected' : ''; ?>>Completado</option>
                                              </select>
@@ -152,7 +153,7 @@
                                              <?php if (!empty($detalle_ventas)) : ?>
                                                  <?php foreach ($detalle_ventas as $detalle_venta) : ?>
                                                      <tr>
-                                                         <td><input type='hidden' name='idproductos[]' value='<?php echo $detalle_venta->codigo ?>'><?php echo $detalle_venta->codigo ?></td>
+                                                         <td><input type='hidden' name='idproductos[]' value='<?php echo $detalle_venta->id_productos ?>'><?php echo $detalle_venta->codigo ?></td>
                                                          <td><?php echo $detalle_venta->nombre; ?></td>
                                                          <td><input type='hidden' name='precios[]' value='<?php echo $detalle_venta->precio ?>'><?php echo $detalle_venta->precio ?></td>
                                                          <td><?php echo $detalle_venta->stock; ?></td>
