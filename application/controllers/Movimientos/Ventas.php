@@ -179,8 +179,6 @@ class Ventas extends BaseController
                 }
             } else {
 
-
-
                 $data = array(
                     'id_usuarios' => $idusuario,
                     'id_clientes' => $idcliente,

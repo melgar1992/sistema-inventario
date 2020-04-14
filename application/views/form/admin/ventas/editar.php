@@ -98,6 +98,7 @@
                                          <div class="col-md-3">
                                              <label for="fase_proyecto" class="">Fase de proyecto</label>
                                              <select name="fase_proyecto" id="fase_proyecto" requiered='requiered' class="form-control col-md-7 col-xs-12">
+
                                                  <option value="">Seleccione...</option>
                                                  <option value="En ejecucion" <?php echo ($venta->fase_proyecto == 'En ejecucion') ? 'selected' : ''; ?>>En ejecucion</option>
                                                  <option value="Completado" <?php echo ($venta->fase_proyecto == 'Completado') ? 'selected' : ''; ?>>Completado</option>
@@ -197,7 +198,9 @@
                                      <div class="form-group">
                                          <div class="col-md-12">
                                              <a class="btn btn-primary btn-flat" href="<?php echo site_url("Movimientos/Ventas") ?>" type="button">Volver</a>
+                                             <?php if($venta->fase_proyecto != 'Completado') :  ?>
                                              <button type="submit" class="btn btn-warning btn-flat">Editar</button>
+                                             <?php endif; ?>
                                          </div>
 
                                      </div>
