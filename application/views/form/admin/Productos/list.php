@@ -146,51 +146,63 @@
 
                             <hr>
                             <div class="row">
-                                <div class="col-md-12">
-                                    <table id="example1" class="table table-bordered btn-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Codigo</th>
-                                                <th>Descripcion</th>
-                                                <th>Estado Producto</th>
-                                                <th>Talla</th>
-                                                <th>Color</th>
-                                                <Th>Marca</Th>
-                                                <th>Precio</th>
-                                                <th>Stock</th>
-                                                <th>Categoria</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php if (!empty($productos)) : ?>
-                                                <?php foreach ($productos as $productos) : ?>
-
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Tabla de productos</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <table id="example1" class="table table-bordered btn-hover">
+                                                <thead>
                                                     <tr>
-                                                        <td><?php echo $productos->id_productos; ?></td>
-                                                        <td><?php echo $productos->codigo; ?></td>
-                                                        <td><?php echo $productos->nombre; ?></td>
-                                                        <td><?php echo $productos->descripcion; ?></td>
-                                                        <td><?php echo $productos->talla; ?></td>
-                                                        <td><?php echo $productos->color; ?></td>
-                                                        <td><?php echo $productos->marca; ?></td>
-                                                        <td><?php echo $productos->precio; ?></td>
-                                                        <td><?php echo $productos->stock; ?></td>
-                                                        <td><?php echo $productos->categoria; ?></td>
-                                                        <td>
-                                                            <div class="btn-group">
-                                                                <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $productos->id_productos ?>"><span class="fa fa-search"></span></button>
-                                                                <a href="<?php echo base_url() ?>Mantenimiento/Productos/editar/<?php echo $productos->id_productos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                                <a href="<?php echo base_url(); ?>Mantenimiento/Productos/borrar/<?php echo $productos->id_productos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
-                                                            </div>
-                                                        </td>
+                                                        <th>#</th>
+                                                        <th>Codigo</th>
+                                                        <th>Descripcion</th>
+                                                        <th>Estado Producto</th>
+                                                        <th>Talla</th>
+                                                        <th>Color</th>
+                                                        <Th>Marca</Th>
+                                                        <th>Precio</th>
+                                                        <th>Stock</th>
+                                                        <th>Categoria</th>
+                                                        <th>Opciones</th>
                                                     </tr>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
+                                                </thead>
+                                                <tbody>
+                                                    <?php if (!empty($productos)) : ?>
+                                                        <?php foreach ($productos as $productos) : ?>
 
-                                        </tbody>
-                                    </table>
+                                                            <tr>
+                                                                <td><?php echo $productos->id_productos; ?></td>
+                                                                <td><?php echo $productos->codigo; ?></td>
+                                                                <td><?php echo $productos->nombre; ?></td>
+                                                                <td><?php echo $productos->descripcion; ?></td>
+                                                                <td><?php echo $productos->talla; ?></td>
+                                                                <td><?php echo $productos->color; ?></td>
+                                                                <td><?php echo $productos->marca; ?></td>
+                                                                <td><?php echo $productos->precio; ?></td>
+                                                                <td><?php echo $productos->stock; ?></td>
+                                                                <td><?php echo $productos->categoria; ?></td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $productos->id_productos ?>"><span class="fa fa-search"></span></button>
+                                                                        <a href="<?php echo base_url() ?>Mantenimiento/Productos/editar/<?php echo $productos->id_productos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                                        <a href="<?php echo base_url(); ?>Mantenimiento/Productos/borrar/<?php echo $productos->id_productos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.box -->

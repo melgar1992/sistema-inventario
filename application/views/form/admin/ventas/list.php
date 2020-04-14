@@ -26,6 +26,13 @@
                           <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
+                          <?php if ($this->session->flashdata("error")) : ?>
+                              <div class="alert alert-danger alert-dismissable">
+                                  <button type="button" class="close" data-dissmiss="alert" aria-hidden="true"></button>
+                                  <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
+
+                              </div>
+                          <?php endif; ?>
                           <div class="form-group">
                               <a href="<?php echo base_url(); ?>Movimientos/Ventas/add">
 
@@ -69,7 +76,7 @@
                                                       <td>
                                                           <button type="button" class="btn btn-info btn-view-venta" data-toggle="modal" data-target="#modal-default" value="<?php echo $venta->id_ventas ?>"><span class="fa fa-search"></span></button>
                                                           <a href="<?php echo base_url() ?>Movimientos/Ventas/editar/<?php echo $venta->id_ventas; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                          <a href="<?php echo base_url(); ?>Movimientos/Ventas/borrar/<?php echo $venta->id_ventas; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                          <button type="button" value="<?php echo  $venta->id_ventas; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                       </td>
                                                   </tr>
                                               <?php endforeach; ?>

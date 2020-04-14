@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session', 'form_validation', 'Upload','encryption');
+$autoload['libraries'] = array('database', 'session', 'form_validation', 'Upload', 'encryption');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','numeros_letras_helper');
+$autoload['helper'] = array('url', 'numeros_letras_helper');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Usuario_model','Categorias_model','Productos_model','Clientes_model','Ventas_model','Permisos_model','Empresa_model','Empleado_model', 'Reportes_model');
+$autoload['model'] = array('Usuario_model', 'Categorias_model', 'Productos_model', 'Clientes_model', 'Ventas_model', 'Permisos_model', 'Empresa_model', 'Empleado_model', 'Reportes_model', 'Descarte_producto_model');

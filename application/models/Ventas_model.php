@@ -121,4 +121,9 @@ class Ventas_model extends CI_Model
         $this->db->where('id_detalle_ventas',$id_detalle_venta);
         $this->db->delete('detalle_ventas');
     }
+    public function borrar($id_ventas)
+    {
+        $this->db->where('id_ventas',$id_ventas);
+        return $this->db->delete('ventas');
+    }
 }

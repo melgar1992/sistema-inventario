@@ -155,7 +155,38 @@ $(document).ready(function () {
 		});
 	});
 
+	$(document).on('click', '.btn-borrar', function () {
+
+		Swal.fire({
+			title: 'Esta seguro de elimar?',
+			text: "La salida de vestuario se eliminara!",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Si, deseo elimniar!',
+			cancelButtonText: 'Cancelar'
+		}).then((result) => {
+			if (result.value) {
+
+				var id = $(this).val();
+
+				$.ajax({
+					url: base_url + 'Mantenimiento/Empleado/borrar/' + id,
+					type: 'POST',
+					success: function (resp) {
+						window.location.href = base_url + resp;
+					}
+				})
+
+
+			}
+		})
+	})
+
 })
+
+
 
 function sumar() {
 	subtotal = 0;

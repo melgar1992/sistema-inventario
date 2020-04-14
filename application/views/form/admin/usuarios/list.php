@@ -109,45 +109,58 @@
                              </form>
 
                              <hr>
+                             <!-- Box de la tabla -->
                              <div class="row">
-                                 <div class="col-md-12">
-                                     <table id="example1" class="table table-bordered btn-hover">
-                                         <thead>
-                                             <tr>
-                                                 <th>#</th>
-                                                 <th>Nombres</th>
-                                                 <th>Apellidos</th>
-                                                 <th>Email</th>
-                                                 <th>Usuario</th>
-                                                 <th>Roles</th>
-                                                 <th>Opciones</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody>
-                                             <?php if (!empty($usuarios)) : ?>
-                                                 <?php foreach ($usuarios as $usuario) : ?>
-
+                                 <div class="col-md-12 col-sm-12 col-xs-12">
+                                     <div class="x_panel">
+                                         <div class="x_title">
+                                             <h2>Tabla de Usuarios</h2>
+                                             <ul class="nav navbar-right panel_toolbox">
+                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                 </li>
+                                             </ul>
+                                             <div class="clearfix"></div>
+                                         </div>
+                                         <div class="x_content">
+                                             <table id="example1" class="table table-bordered btn-hover">
+                                                 <thead>
                                                      <tr>
-                                                         <td><?php echo $usuario->id_usuarios; ?></td>
-                                                         <td><?php echo $usuario->nombres; ?></td>
-                                                         <td><?php echo $usuario->apellidos; ?></td>
-                                                         <td><?php echo $usuario->email; ?></td>
-                                                         <td><?php echo $usuario->username; ?></td>
-                                                         <td><?php echo $usuario->roles; ?></td>
-
-                                                         <td>
-                                                             <div class="btn-group">
-                                                                 <button type="button" class="btn btn-info btn-vista-usuario" data-toggle="modal" data-target="#modal-default" value="<?php echo $usuario->id_usuarios ?>"><span class="fa fa-search"></span></button>
-                                                                 <a href="<?php echo base_url() ?>Administrador/Usuarios/editar/<?php echo $usuario->id_usuarios; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                                 <a href="<?php echo base_url(); ?>Administrador/Usuarios/borrar/<?php echo $usuario->id_usuarios; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
-                                                             </div>
-                                                         </td>
+                                                         <th>#</th>
+                                                         <th>Nombres</th>
+                                                         <th>Apellidos</th>
+                                                         <th>Email</th>
+                                                         <th>Usuario</th>
+                                                         <th>Roles</th>
+                                                         <th>Opciones</th>
                                                      </tr>
-                                                 <?php endforeach; ?>
-                                             <?php endif; ?>
+                                                 </thead>
+                                                 <tbody>
+                                                     <?php if (!empty($usuarios)) : ?>
+                                                         <?php foreach ($usuarios as $usuario) : ?>
 
-                                         </tbody>
-                                     </table>
+                                                             <tr>
+                                                                 <td><?php echo $usuario->id_usuarios; ?></td>
+                                                                 <td><?php echo $usuario->nombres; ?></td>
+                                                                 <td><?php echo $usuario->apellidos; ?></td>
+                                                                 <td><?php echo $usuario->email; ?></td>
+                                                                 <td><?php echo $usuario->username; ?></td>
+                                                                 <td><?php echo $usuario->roles; ?></td>
+
+                                                                 <td>
+                                                                     <div class="btn-group">
+                                                                         <button type="button" class="btn btn-info btn-vista-usuario" data-toggle="modal" data-target="#modal-default" value="<?php echo $usuario->id_usuarios ?>"><span class="fa fa-search"></span></button>
+                                                                         <a href="<?php echo base_url() ?>Administrador/Usuarios/editar/<?php echo $usuario->id_usuarios; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                                         <a href="<?php echo base_url(); ?>Administrador/Usuarios/borrar/<?php echo $usuario->id_usuarios; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                                     </div>
+                                                                 </td>
+                                                             </tr>
+                                                         <?php endforeach; ?>
+                                                     <?php endif; ?>
+
+                                                 </tbody>
+                                             </table>
+                                         </div>
+                                     </div>
                                  </div>
                              </div>
                              <!-- /.box -->
