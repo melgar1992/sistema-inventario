@@ -47,8 +47,8 @@
                                 <li><a><i class="fa fa-print"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
 
-                                        <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Clientes</a></li>
-                                        <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Productos</a></li>
+                                       
+                                        <li><a href="<?php echo base_url(); ?>Reportes/Reporte_inventario_general"><i class="fa fa-circle-o"></i> Productos</a></li>
                                         <li><a href="<?php echo base_url(); ?>Reportes/Ventas"><i class="fa fa-circle-o"></i> Ventas</a></li>
                                         
 
