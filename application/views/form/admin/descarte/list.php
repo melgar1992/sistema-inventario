@@ -35,37 +35,43 @@
                          <?php endif; ?>
 
 
-                         <form method="POST" action="<?php echo base_url(); ?>Movimientos/descarte/guardarFalla" id="productos_fallas" class="form-horizontal form-label-left">
+                         <form method="POST" action="<?php echo base_url(); ?>Movimientos/descarte/guardar" id="productos_fallas" class="form-horizontal form-label-left">
                              <div class="form-group <?php echo !empty(form_error("producto")) ? 'has-error' : ''; ?>">
-                                 <label for="producto" class="control-label col-md-3 col-sm-3 col-xs-12">producto<span class="required">*</span></label>
+                                 <label for="producto" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion :<span class="required">*</span></label>
                                  <div class="input-group col-md-3 col-sm-6 col-xs-12">
                                      <input type="number" name="id_productos" id="id_productos" hidden='hidden'>
-                                     <input type="text" readonly='readonly' name="producto" value="<?php echo set_value('producto') ?>" id="producto" required="required" class="form-control" placeholder="producto del Producto">
+                                     <input type="text" readonly='readonly' name="producto" value="<?php echo set_value('producto') ?>" id="producto" required="required" class="form-control" placeholder="Descripcion del Producto">
                                      <span class="input-group-btn">
                                          <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-productos"><span class="fa fa-search"></span> Buscar</button>
                                      </span>
                                      <?php echo form_error("producto", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                  </div>
                              </div>
-
-                             <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
-                                 <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span></label>
+                             <div class="form-group <?php echo !empty(form_error("categoria_producto")) ? 'has-error' : ''; ?>">
+                                 <label for="categoria_producto" class="control-label col-md-3 col-sm-3 col-xs-12">Categoria producto <span class="required">*</span></label>
                                  <div class="col-md-3 col-sm-6 col-xs-12">
-                                     <input type="text" name="nombre" value="<?php echo set_value('nombre') ?>" id=nombre required="required" class="form-control" placeholder="Nombre del producto">
-                                     <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                     <input type="text" readonly='readonly' value="<?php echo set_value('categoria_producto') ?>" id="categoria_producto" required="required" class="form-control" placeholder="Categoria producto">
+                                     <?php echo form_error("categoria_producto", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                 </div>
+                             </div>
+                             <div class="form-group <?php echo !empty(form_error("cantidad")) ? 'has-error' : ''; ?>">
+                                 <label for="cantidad" class="control-label col-md-3 col-sm-3 col-xs-12">Cantidad <span class="required">*</span></label>
+                                 <div class="col-md-3 col-sm-6 col-xs-12">
+                                     <input type="number" min="0"  name="cantidad" value="<?php echo set_value('cantidad') ?>" id=cantidad required="required" class="form-control" placeholder="cantidad del producto">
+                                     <?php echo form_error("cantidad", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                  </div>
                              </div>
                              <div class="form-group">
-                                 <label for="descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Describa el tipo de falla : <span class="required">*</span></label>
+                                 <label for="tipo_falla" class="control-label col-md-3 col-sm-3 col-xs-12">Describa el tipo de falla : <span class="required">*</span></label>
                                  <div class="col-md-3 col-sm-6 col-xs-12">
-                                     <textarea name="descripcion" id="descripcion" class="form-control" rows="3"></textarea>
+                                     <textarea name="tipo_falla" id="tipo_falla" class="form-control" rows="3"></textarea>
                                  </div>
                              </div>
-                             <div class="form-group <?php echo !empty(form_error("fecha_ini")) ? 'has-error' : ''; ?>">
-                                 <label for="fecha_ini" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha falla<span class="required">*</span></label>
+                             <div class="form-group <?php echo !empty(form_error("fecha")) ? 'has-error' : ''; ?>">
+                                 <label for="fecha" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha falla<span class="required">*</span></label>
                                  <div class="col-md-3 col-sm-6 col-xs-12">
-                                     <input type="date" name="fecha_ini" value="<?php echo !empty(set_value('fecha_ini')) ? set_value('fecha_ini') : date('y-m-d')  ?>" id="fecha_ini" required="required" placeholder="" class="form-control">
-                                     <?php echo form_error("fecha_ini", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                     <input type="date" name="fecha" value="<?php echo !empty(set_value('fecha')) ? set_value('fecha') : date('d-m-Y')  ?>" id="fecha" required="required" placeholder="" class="form-control">
+                                     <?php echo form_error("fecha", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                  </div>
                              </div>
 
@@ -116,15 +122,15 @@
                                                          <tr>
                                                              <td><?php echo $descarte_producto->id_descarte_producto; ?></td>
                                                              <td><?php echo $descarte_producto->codigo; ?></td>
-                                                             <td><?php echo $descarte_producto->descripcion; ?></td>
+                                                             <td><?php echo $descarte_producto->nombre_producto; ?></td>
                                                              <td><?php echo $descarte_producto->categorias_producto; ?></td>
                                                              <td><?php echo $descarte_producto->tipo_falla; ?></td>
                                                              <td><?php echo $descarte_producto->fecha; ?></td>
                                                              <td><?php echo $descarte_producto->cantidad; ?></td>
                                                              <td>
                                                                  <div class="btn-group">
-                                                                     <a href="<?php echo base_url() ?>Movimientos/descarte/guardarFalla/editar/<?php echo $descarte_producto->id_descarte_producto; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                                     <a href="<?php echo base_url(); ?>Movimientos/descarte/guardarFalla/borrar/<?php echo $descarte_producto->id_descarte_producto; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                                     <a href="<?php echo base_url() ?>Movimientos/descarte/editar/<?php echo $descarte_producto->id_descarte_producto; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                                     <button type="button" value="<?php echo  $descarte_producto->id_descarte_producto; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                                  </div>
                                                              </td>
                                                          </tr>
@@ -184,7 +190,7 @@
                                      <td><?php echo $producto->color; ?></td>
                                      <td><?php echo $producto->talla; ?></td>
 
-                                     <?php $dataproducto = $producto->id_productos . "*" . $producto->codigo . "*" . $producto->nombre . "*" . $producto->precio . "*" . $producto->stock; ?>
+                                     <?php $dataproducto = $producto->id_productos . "*" . $producto->codigo . "*" . $producto->nombre . "*" . $producto->precio . "*" . $producto->stock . "*" . $producto->categoria; ?>
 
                                      <td>
                                          <button type="button" class="btn btn-success btn-check-producto" value="<?php echo $dataproducto ?>"><span class="fa fa-check"></span></button>
