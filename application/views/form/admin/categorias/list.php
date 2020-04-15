@@ -67,37 +67,49 @@
 
                             <hr>
                             <div class="row">
-                                <div class="col-md-12">
-                                    <table id="example1" class="table table-bordered btn-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nombres</th>
-                                                <th>Descripcion</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php if (!empty($categorias)) : ?>
-                                                <?php foreach ($categorias as $categoria) : ?>
-
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Tabla de categorias</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <table id="example1" class="table table-bordered btn-hover">
+                                                <thead>
                                                     <tr>
-                                                        <td><?php echo $categoria->id_categorias; ?></td>
-                                                        <td><?php echo $categoria->nombre; ?></td>
-                                                        <td><?php echo $categoria->descripcion; ?></td>
-                                                        <td>
-                                                            <div class="btn-group">
-                                                                <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $categoria->id_categorias ?>"><span class="fa fa-search"></span></button>
-                                                                <a href="<?php echo base_url() ?>Mantenimiento/Categorias/editar/<?php echo $categoria->id_categorias; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                                <a href="<?php echo base_url(); ?>Mantenimiento/Categorias/borrar/<?php echo $categoria->id_categorias; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
-                                                            </div>
-                                                        </td>
+                                                        <th>#</th>
+                                                        <th>Nombres</th>
+                                                        <th>Descripcion</th>
+                                                        <th>Opciones</th>
                                                     </tr>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
+                                                </thead>
+                                                <tbody>
+                                                    <?php if (!empty($categorias)) : ?>
+                                                        <?php foreach ($categorias as $categoria) : ?>
 
-                                        </tbody>
-                                    </table>
+                                                            <tr>
+                                                                <td><?php echo $categoria->id_categorias; ?></td>
+                                                                <td><?php echo $categoria->nombre; ?></td>
+                                                                <td><?php echo $categoria->descripcion; ?></td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $categoria->id_categorias ?>"><span class="fa fa-search"></span></button>
+                                                                        <a href="<?php echo base_url() ?>Mantenimiento/Categorias/editar/<?php echo $categoria->id_categorias; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                                        <a href="<?php echo base_url(); ?>Mantenimiento/Categorias/borrar/<?php echo $categoria->id_categorias; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.box -->

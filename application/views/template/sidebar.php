@@ -40,7 +40,7 @@
                                     <ul class="nav child_menu">
 
                                         <li><a href="<?php echo base_url(); ?>Movimientos/Ventas"><i class="fa fa-circle-o"></i> Salida de Vestuario</a></li>
-                                       
+                                       <li><a href="<?php echo base_url(); ?>Movimientos/Descarte"><i class="fa fa-circle-o"></i> Descarte de Vestuario</a></li>
 
                                     </ul>
                                 </li>

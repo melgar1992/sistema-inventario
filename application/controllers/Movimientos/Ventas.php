@@ -214,6 +214,18 @@ class Ventas extends BaseController
             redirect(base_url() . 'Movimientos/ventas/add');
         }
     }
+    public function borrar($idVenta)
+    {
+        $this->borrar_detalle($idVenta);
+        if ($this->Ventas_model->borrar($idVenta)) {
+            echo "Movimientos/ventas";
+        } else {
+            $this->session->set_flashdata('error', 'Hubo un problema al borrar la venta');
+            echo "Movimientos/ventas";
+        }
+        
+        
+    }
     protected function actualizarComprobante($idcomprobante)
     {
         $comprobanteActual = $this->Ventas_model->getComprobante($idcomprobante);

@@ -58,7 +58,8 @@ class Empleado extends BaseController
                 $this->session->set_flashdata("error", "No se pudo guardar los datos del empleado");
             }
         } else {
-            $this->index();
+            $this->session->set_flashdata("error", "No se pudo guardar los datos del empleado");
+            redirect(base_url() . 'Mantenimiento/Empleado');
         }
     }
     public function editar($id_empleados)
@@ -123,6 +124,7 @@ class Empleado extends BaseController
                 redirect(base_url() . "/form/admin/empleado/editar" . $id_empleados);
             }
         } else {
+            
             $this->editar($id_empleados);
         }
     }
