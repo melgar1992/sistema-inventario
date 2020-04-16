@@ -14,7 +14,7 @@ class Dashboard extends BaseController
     {
 
         $data = array(
-            
+            'productos' => $this->Productos_model->getProductos(),
         );
 
         $this->loadView("Dashboard", "dashboard", $data);

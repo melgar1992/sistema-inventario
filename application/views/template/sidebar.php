@@ -4,7 +4,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="" class="site_title"><i class="fa fa-building"></i> <span>Sistema Inventario</span></a>
+                        <a href="<?php echo base_url() ?>" class="site_title"><i class="fa fa-building"></i> <span>Sistema Inventario</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -60,8 +60,7 @@
 
                                         <li><a href="<?php echo base_url(); ?>Empresa/Configuracion_empresa"><i class="fa fa-circle-o"></i> Configuracion de la empresa</a></li>
                                         <li><a href="<?php echo base_url(); ?>Administrador/Usuarios"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                                        <li><a href="<?php echo base_url(); ?>Administrador/Permisos"><i class="fa fa-circle-o"></i> Permisos</a></li>
-                                        
+                                                                               
 
                                     </ul>
                                 </li>
