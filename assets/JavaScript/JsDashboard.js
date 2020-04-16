@@ -56,7 +56,7 @@ $(document).ready(function () {
 			$('tr:eq(1) th:eq(1)', api.table().footer()).html(total);
 		},
 
-		dom: 'Blfrtip',
+		dom: 'Bfrtip',
 		responsive: "true",
 		buttons: [
 			{
