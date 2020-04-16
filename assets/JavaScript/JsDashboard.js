@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    var base_url = $('#base_url').val();
-    
+	var base_url = $('#base_url').val();
+
 	$('#tablaProdcutos').DataTable({
-		responsive: "true",
+
 		"language": {
 			'lengthMenu': "Mostrar _MENU_ registros",
 			"zeroRecords": "No se encontraron resultados",
@@ -28,7 +28,7 @@ $(document).ready(function () {
 				return typeof i === 'string' ?
 					i.replace(/[\$,]/g, '') * 1 :
 					typeof i === 'number' ?
-					i : 0;
+						i : 0;
 			};
 
 			// Total over all pages
@@ -54,14 +54,15 @@ $(document).ready(function () {
 				pageTotal
 			);
 			$('tr:eq(1) th:eq(1)', api.table().footer()).html(total);
-        },
-        
-        dom: 'Bfrtip',
+		},
+
+		dom: 'Blfrtip',
+		responsive: "true",
 		buttons: [
-            {
+			{
 				extend: 'excelHtml5',
-                title: "Reporte de productos en inventario",
-                footer: true,
+				title: "Reporte de productos en inventario",
+				footer: true,
 				exportOptions: {
 					columns: [1, 2, 3, 4, 5, 6, 7, 8, 9],
 				}
@@ -69,26 +70,23 @@ $(document).ready(function () {
 			},
 			{
 				extend: 'pdfHtml5',
-                title: "Reporte de productos en inventario",
-                footer: true,
+				title: "Reporte de productos en inventario",
+				footer: true,
 				exportOptions: {
 					columns: [1, 2, 3, 4, 5, 6, 7, 8, 9],
 				}
 			},
 			{
 				extend: 'print',
-                title: "Reporte de productos en inventario",
-                footer: true,
+				title: "Reporte de productos en inventario",
+				footer: true,
 				exportOptions: {
-                    columns: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                    format:{
-                        footer: function (data, row, column, node) {
-                            return column === 8 && column === 9;
-                        }
-                    },
-                    
+					columns: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+
 				}
-			}
+			},
+
+
 		],
 	});
 });
