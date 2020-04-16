@@ -111,6 +111,7 @@
                                                      <th>Categoria</th>
                                                      <th>Tipo de falla</th>
                                                      <th>Fecha</th>
+                                                     <th>Precio</th>
                                                      <Th>Cantidad</Th>
                                                      <th>Opciones</th>
                                                  </tr>
@@ -126,6 +127,7 @@
                                                              <td><?php echo $descarte_producto->categorias_producto; ?></td>
                                                              <td><?php echo $descarte_producto->tipo_falla; ?></td>
                                                              <td><?php echo $descarte_producto->fecha; ?></td>
+                                                             <td><?php echo $descarte_producto->precio; ?></td>
                                                              <td><?php echo $descarte_producto->cantidad; ?></td>
                                                              <td>
                                                                  <div class="btn-group">

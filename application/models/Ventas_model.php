@@ -100,8 +100,8 @@ class Ventas_model extends CI_Model
     }
     public function actualizarVentas($id_venta, $data)
     {
-        $this->db->where('id_ventas',$id_venta);
-        return $this->db->update('ventas',$data);
+        $this->db->where('id_ventas', $id_venta);
+        return $this->db->update('ventas', $data);
     }
     public function ultimoID()
     {
@@ -118,12 +118,27 @@ class Ventas_model extends CI_Model
     }
     public function borrar_detalle($id_detalle_venta)
     {
-        $this->db->where('id_detalle_ventas',$id_detalle_venta);
+        $this->db->where('id_detalle_ventas', $id_detalle_venta);
         $this->db->delete('detalle_ventas');
     }
     public function borrar($id_ventas)
     {
-        $this->db->where('id_ventas',$id_ventas);
+        $this->db->where('id_ventas', $id_ventas);
         return $this->db->delete('ventas');
+    }
+    public function valorItemsProyectos()
+    {
+
+        $this->db->select_sum('importeTotal', 'valorTotal');
+        $this->db->where('estado', '1');
+        $valorTotal = $this->db->get('ventas')->row_array();
+        $this->db->select_sum('cantidad', 'cantidad');
+        $cantidad = $this->db->get('detalle_ventas')->row_array();
+
+        $resultado = array(
+            'valorTotal' => $valorTotal['valorTotal'],
+            'cantidad' => $cantidad['cantidad'],
+        );
+        return $resultado;
     }
 }

@@ -34,4 +34,11 @@ class Descarte_producto_model extends CI_Model
         $this->db->where('id_descarte_producto', $id_descarte_producto);
         $this->db->delete('descarte_producto');
     }
+    public function valorProductosDescartados()
+    {
+        $this->db->select('sum(d.cantidad * p.precio) as valor_descarte, sum(cantidad) as cantidad');
+        $this->db->from('descarte_producto d, productos p');
+        $this->db->where('d.id_productos = p.id_productos');
+        return $this->db->get()->row_array();
+    }
 }

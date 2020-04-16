@@ -29,23 +29,23 @@
                 <div class="row tile_count">
                   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-money"></i> Valor de inventario actual</span>
-                    <div class="count green">2500</div>
-                    <span class="count_bottom"><i class="green">4% </i> Cantidad items</span>
+                    <div class="count green"><?php echo number_format($valor_inventario_proyectos['valorTotal'] + $valor_inventario['valor_total_inventario'] ,2,'.',',')  ?></div>
+                    <span class="count_bottom"><i class=""></i><?php echo $valor_inventario['items_almacen'] + $valor_inventario_proyectos['cantidad'] ;?> </i> Cantidad items</span>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-money"></i> Valor de inventario en proyectos</span>
-                    <div class="count red">123.50</div>
-                    <span class="count_bottom"><i class="green"><i class=""></i>3% </i>Cantidad items</span>
+                    <div class="count red"><?php echo number_format($valor_inventario_proyectos['valorTotal'],2,'.',',')  ?></div>
+                    <span class="count_bottom"><i class=""><i class=""></i><?php echo $valor_inventario_proyectos['cantidad'] ?> </i>Cantidad items</span>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-money"></i> Valor de inventario en almacen</span>
-                    <div class="count green">2,500</div>
-                    <span class="count_bottom"><i class="green"><i class=""></i>34% </i>Cantidad items</span>
+                    <div class="count green"><?php echo number_format($valor_inventario['valor_total_inventario'],2,'.',',') ; ?></div>
+                    <span class="count_bottom"><i class="green"><i class=""></i><?php echo $valor_inventario['items_almacen'];?></i>Cantidad items</span>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-money"></i> Valor items descartados</span>
-                    <div class="count red">4,567</div>
-                    <span class="count_bottom"><i class="red"><i class=""></i>12% </i> Cantidad items</span>
+                    <span class="count_top"><i class="fa fa-money"></i>Valor de productos descartados :</span>
+                    <div class="count red"><?php echo number_format($valor_productos_descartados['valor_descarte'],2,'.',',') ?></div>
+                    <span class="count_bottom"><i class="red"><i class=""></i><?php echo $valor_productos_descartados['cantidad'] ?></i> Cantidad items</span>
                   </div>
 
                 </div>
@@ -64,7 +64,7 @@
                 </ul>
                 <div class="clearfix"></div>
               </div>
-              <div class="x_content">
+              <div class="x_content" style="display:none">
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                   <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                     <li role="tablaProdcutos" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Tabla de productos</a>
@@ -109,7 +109,6 @@
                                 <td><?php echo $productos->categoria; ?></td>
                                 <td>
                                   <div class="btn-group">
-                                    <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $productos->id_productos ?>"><span class="fa fa-search"></span></button>
                                     <a href="<?php echo base_url() ?>Mantenimiento/Productos/editar/<?php echo $productos->id_productos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                     <a href="<?php echo base_url(); ?>Mantenimiento/Productos/borrar/<?php echo $productos->id_productos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
                                   </div>
@@ -142,12 +141,84 @@
                       </table>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                      <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
-                        booth letterpress, commodo enim craft beer mlkshk aliquip</p>
+                      <table id="tabla_salida_productos" class="table table-bordered btn-hover">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Nombres Cliente</th>
+                            <th>Tipo Comprobante</th>
+                            <th>Numero del Comprobante</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
+                            <th>Nombre proyecto</th>
+                            <th>Estado proyecto</th>
+                            <th>Opciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php if (!empty($ventas)) : ?>
+                            <?php foreach ($ventas as $venta) : ?>
+                              <tr>
+                                <td><?php echo $venta->id_ventas; ?></td>
+                                <td><?php echo $venta->nombres; ?></td>
+                                <td><?php echo $venta->tipocomprobante; ?></td>
+                                <td><?php echo $venta->num_documento; ?></td>
+                                <td><?php echo $venta->fecha; ?></td>
+                                <td><?php echo $venta->importeTotal; ?></td>
+                                <td><?php echo $venta->proyecto; ?></td>
+                                <td><?php echo $venta->fase_proyecto; ?></td>
+                                <td>
+                                  <button type="button" class="btn btn-info btn-view-venta" data-toggle="modal" data-target="#modal-default" value="<?php echo $venta->id_ventas ?>"><span class="fa fa-search"></span></button>
+                                  <a href="<?php echo base_url() ?>Movimientos/Ventas/editar/<?php echo $venta->id_ventas; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                  <button type="button" value="<?php echo  $venta->id_ventas; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                </td>
+                              </tr>
+                            <?php endforeach; ?>
+                          <?php endif; ?>
+
+                        </tbody>
+                      </table>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                      <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
-                        booth letterpress, commodo enim craft beer mlkshk </p>
+                      <table id="tabla_descarte" class="table table-bordered btn-hover">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Codigo</th>
+                            <th>Descripcion</th>
+                            <th>Categoria</th>
+                            <th>Tipo de falla</th>
+                            <th>Fecha</th>
+                            <th>precio</th>
+                            <Th>Cantidad</Th>
+                            <th>Opciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php if (!empty($descarte_productos)) : ?>
+                            <?php foreach ($descarte_productos as $descarte_producto) : ?>
+
+                              <tr>
+                                <td><?php echo $descarte_producto->id_descarte_producto; ?></td>
+                                <td><?php echo $descarte_producto->codigo; ?></td>
+                                <td><?php echo $descarte_producto->nombre_producto; ?></td>
+                                <td><?php echo $descarte_producto->categorias_producto; ?></td>
+                                <td><?php echo $descarte_producto->tipo_falla; ?></td>
+                                <td><?php echo $descarte_producto->fecha; ?></td>
+                                <td><?php echo $descarte_producto->precio; ?></td>
+                                <td><?php echo $descarte_producto->cantidad; ?></td>
+                                <td>
+                                  <div class="btn-group">
+                                    <a href="<?php echo base_url() ?>Movimientos/descarte/editar/<?php echo $descarte_producto->id_descarte_producto; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                    <button type="button" value="<?php echo  $descarte_producto->id_descarte_producto; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                  </div>
+                                </td>
+                              </tr>
+                            <?php endforeach; ?>
+                          <?php endif; ?>
+
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -159,3 +230,46 @@
       </div>
     </div>
     <!-- /page content -->
+
+
+    <div class="modal fade" id="modal-default">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+              <span aria-hidden="true">&times;</span></button>
+
+            <h4 class="modal-title">Informacion de la salida</h4>
+
+          </div>
+
+          <div class="modal-body">
+
+
+
+          </div>
+
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print">Imprimir</span></button>
+
+
+          </div>
+
+        </div>
+
+        <!-- /.modal-content -->
+
+      </div>
+
+      <!-- /.modal-dialog -->
+
+    </div>
+
+    <!-- /.modal -->

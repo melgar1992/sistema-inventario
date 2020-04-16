@@ -30,4 +30,10 @@ class Productos_model extends CI_Model
         $this->db->where("id_productos", $id_producto);
         return $this->db->update("productos", $data);
     }
+    public function valorInventario()
+    {
+        $this->db->select('sum(precio * stock) as valor_total_inventario, sum(stock) as items_almacen');
+        $this->db->where('estado','1');
+        return $this->db->get('productos')->row_array();
+    }
 }
