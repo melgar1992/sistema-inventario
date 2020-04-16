@@ -2,7 +2,7 @@ $(document).ready(function () {
 	var base_url = $('#base_url').val();
 
 	$('#tablaProdcutos').DataTable({
-
+		pageLength: 100,
 		"language": {
 			'lengthMenu': "Mostrar _MENU_ registros",
 			"zeroRecords": "No se encontraron resultados",
