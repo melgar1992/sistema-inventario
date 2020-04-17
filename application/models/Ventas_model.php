@@ -141,4 +141,14 @@ class Ventas_model extends CI_Model
         );
         return $resultado;
     }
+    public function getEncargado($id)
+    {
+        $this->db->select('e.nombre, e.num_documento');
+        $this->db->from('empleados e');
+        $this->db->join('ventas v', 'v.id_empleados = e.id_empleados');
+        $this->db->where("v.id_ventas", $id);
+        $resultado = $this->db->get();
+        return $resultado->row();
+    }
+   
 }

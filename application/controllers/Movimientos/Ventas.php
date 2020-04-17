@@ -223,8 +223,6 @@ class Ventas extends BaseController
             $this->session->set_flashdata('error', 'Hubo un problema al borrar la venta');
             echo "Movimientos/ventas";
         }
-        
-        
     }
     protected function actualizarComprobante($idcomprobante)
     {
@@ -279,6 +277,8 @@ class Ventas extends BaseController
         $data = array(
             "venta" => $this->Ventas_model->getVenta($id_venta),
             "detalles" => $this->Ventas_model->getDetalle($id_venta),
+            'Configuracion' => $this->Empresa_model->getEmpresa(),
+            'encargado' => $this->Ventas_model->getEncargado($id_venta),
         );
         $this->load->view('form/admin/ventas/view', $data);
     }

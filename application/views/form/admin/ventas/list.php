@@ -119,21 +119,22 @@
               </div>
 
               <div class="modal-footer">
+                 
 
-                  <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print">Imprimir</span></button>
+                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print">Imprimir</span></button>
 
+
+                  </div>
 
               </div>
 
+              <!-- /.modal-content -->
+
           </div>
 
-          <!-- /.modal-content -->
+          <!-- /.modal-dialog -->
 
       </div>
 
-      <!-- /.modal-dialog -->
-
-  </div>
-
-  <!-- /.modal -->
+      <!-- /.modal -->
