@@ -131,9 +131,14 @@ class Ventas_model extends CI_Model
 
         $this->db->select_sum('importeTotal', 'valorTotal');
         $this->db->where('estado', '1');
+        $this->db->where('fase_proyecto', 'En ejecucion');
         $valorTotal = $this->db->get('ventas')->row_array();
         $this->db->select_sum('cantidad', 'cantidad');
-        $cantidad = $this->db->get('detalle_ventas')->row_array();
+        $this->db->from('ventas v, detalle_ventas d');
+        $this->db->where('v.id_ventas = d.id_ventas');
+        $this->db->where('v.estado','1');
+        $this->db->where('v.fase_proyecto','En ejecucion');
+        $cantidad = $this->db->get()->row_array();
 
         $resultado = array(
             'valorTotal' => $valorTotal['valorTotal'],

@@ -69,9 +69,9 @@
                   <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                     <li role="tablaProdcutos" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Tabla de productos</a>
                     </li>
-                    <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Tabla salida de productos</a>
+                    <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Tabla proyectos</a>
                     </li>
-                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Tabla descarte de productos </a>
+                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Tabla de productos descartados </a>
                     </li>
                   </ul>
                   <div id="myTabContent" class="tab-content">
