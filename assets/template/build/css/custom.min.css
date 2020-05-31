@@ -2046,7 +2046,7 @@ span.right {
 
 @media (min-width:768px) {
 	.tile_count .tile_stats_count .count {
-		font-size: 50px
+		font-size: 30px
 	}
 }
 
@@ -2062,7 +2062,7 @@ span.right {
 
 @media (min-width:768px) {
 	.tile_count .tile_stats_count span {
-		font-size: 20px
+		font-size: 18px
 	}
 }
 
