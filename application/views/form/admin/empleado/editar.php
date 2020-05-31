@@ -87,7 +87,7 @@
                                   </div>
                               </div>
                             <div class="form-group <?php echo !empty(form_error("num_documento")) ? 'has-error' : ''; ?>">
-                                <label for="num_documento" class="control-label col-md-4 col-sm-3 col-xs-12">num_documento: <span class="required">*</span></label>
+                                <label for="num_documento" class="control-label col-md-4 col-sm-3 col-xs-12">Num_documento: <span class="required">*</span></label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
                                     <input type="number" name="num_documento" value="<?php echo !empty(form_error("num_documento")) ? set_value("num_documento") : $Empleado->num_documento ?>" id=num_documento required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                                     <?php echo form_error("num_documento", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>

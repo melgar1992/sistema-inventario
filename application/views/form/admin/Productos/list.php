@@ -3,7 +3,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Productos</h3>
+                    <h3>Formulario Productos</h3>
                 </div>
 
                 <div class="title_right">
@@ -16,7 +16,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Formulario de productos</h2>
+                            <h2>Productos</h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
@@ -37,7 +37,7 @@
 
                             <form method="POST" action="<?php echo base_url(); ?>Mantenimiento/Productos/guardarProducto" id="categorias" class="form-horizontal form-label-left">
                                 <div class="form-group <?php echo !empty(form_error("codigo")) ? 'has-error' : ''; ?>">
-                                    <label for="codigo" class="control-label col-md-3 col-sm-3 col-xs-12">codigo<span class="required">*</span></label>
+                                    <label for="codigo" class="control-label col-md-3 col-sm-3 col-xs-12">Codigo<span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="codigo" value="<?php echo set_value('codigo') ?>" id="codigo" required="required" class="form-group col-md-7 col-xs-12" placeholder="Codigo del Producto">
                                         <?php echo form_error("codigo", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
@@ -64,28 +64,28 @@
                                     </div>
                                 </div>
                                 <div class="form-group <?php echo !empty(form_error("precio_compra")) ? 'has-error' : ''; ?>">
-                                    <label for="precio_compra" class="control-label col-md-3 col-sm-3 col-xs-12">precio compra <span class="required">*</span></label>
+                                    <label for="precio_compra" class="control-label col-md-3 col-sm-3 col-xs-12">Precio compra <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="number" step="0.01" name="precio_compra" value="<?php echo set_value('precio_compra') ?>" id="precio_compra" required="required" placeholder="precio compra del producto" class="form-group col-md-7 col-xs-12">
                                         <?php echo form_error("precio_compra", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
                                 <div class="form-group <?php echo !empty(form_error("precio")) ? 'has-error' : ''; ?>">
-                                    <label for="precio" class="control-label col-md-3 col-sm-3 col-xs-12">precio <span class="required">*</span></label>
+                                    <label for="precio" class="control-label col-md-3 col-sm-3 col-xs-12">Precio <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="number" step="0.01" name="precio" value="<?php echo set_value('precio') ?>" id="precio" required="required" placeholder="Precio del producto" class="form-group col-md-7 col-xs-12">
                                         <?php echo form_error("precio", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
                                 <div class="form-group <?php echo !empty(form_error("stock")) ? 'has-error' : ''; ?>">
-                                    <label for="stock" class="control-label col-md-3 col-sm-3 col-xs-12">stock <span class="required">*</span></label>
+                                    <label for="stock" class="control-label col-md-3 col-sm-3 col-xs-12">Stock <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="number" name="stock" value="<?php echo set_value('stock') ?>" id="stock" required="required" placeholder="Cantidad de stock del producto" class="form-group col-md-7 col-xs-12">
                                         <?php echo form_error("stock", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">categoria <span class="required">*</span></label>
+                                    <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">Categoria <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <select name="categoria" id="categoria" required="required" class="form-group col-md-7 col-xs-12">
                                             <?php foreach ($categorias as $categoria) : ?>
@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group <?php echo !empty(form_error("lugar_almacenado")) ? 'has-error' : ''; ?>">
-                                    <label for="lugar_almacenado" class="control-label col-md-3 col-sm-3 col-xs-12">lugar de almacenado <span class="required">*</span></label>
+                                    <label for="lugar_almacenado" class="control-label col-md-3 col-sm-3 col-xs-12">Lugar de almacen <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="lugar_almacenado" value="<?php echo set_value('lugar_almacenado') ?>" id="lugar_almacenado" required="required" placeholder="Ubicacion del producto" class="form-group col-md-7 col-xs-12">
                                         <?php echo form_error("lugar_almacenado", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>

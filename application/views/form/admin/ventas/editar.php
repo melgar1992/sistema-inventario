@@ -39,36 +39,7 @@
                                  <form action="<?php echo base_url(); ?>movimientos/ventas/actualizar" method="POST" class="form-horizontal">
                                      <div class="form-group">
                                          <input type="number" hidden="hidden" name="id_ventas" id="id_ventas" value="<?php echo $venta->id_ventas ?>">
-                                         <div class="col-md-3">
-                                             <label for="">Comprobante:</label>
-                                             <select name="comprobantes" id="comprobantes" class="form-control" required>
-                                                 <option value="">Seleccione...</option>
-                                                 <?php foreach ($tipocomprobantes as $tipocomprobante) : ?>
-                                                     <?php if ($venta->id_tipo_comprobante == $tipocomprobante->id_tipo_comprobante) : ?>
-                                                         <?php $datacomprobante = $tipocomprobante->id_tipo_comprobante . "*" . $tipocomprobante->cantidad . "*" . $tipocomprobante->igv . "*" . $tipocomprobante->serie . "*" . $tipocomprobante->numero_autorizacion . "*" . $tipocomprobante->nit_ci . "*" . $tipocomprobante->llave_dosificacion . "*" . $tipocomprobante->fecha_limite; ?>
-                                                         <option value="<?php echo $datacomprobante; ?>" selected="selected">
-                                                             <?php echo $tipocomprobante->nombre ?></option>
-                                                     <?php else : ?>
-                                                         <?php $datacomprobante = $tipocomprobante->id_tipo_comprobante . "*" . $tipocomprobante->cantidad . "*" . $tipocomprobante->igv . "*" . $tipocomprobante->serie . "*" . $tipocomprobante->numero_autorizacion . "*" . $tipocomprobante->nit_ci . "*" . $tipocomprobante->llave_dosificacion . "*" . $tipocomprobante->fecha_limite; ?>
-                                                         <option value="<?php echo $datacomprobante; ?>">
-                                                             <?php echo $tipocomprobante->nombre; ?></option>
-                                                     <?php endif ?>
-                                                 <?php endforeach; ?>
-                                             </select>
-                                             <input type="hidden" id="idcomprobante" value="<?php echo $venta->id_tipo_comprobante ?>" name="idcomprobante">
-                                             <input type="hidden" value="<?php echo $venta->iva ?>" id="igv">
-
-                                         </div>
-                                         <div class="col-md-3">
-                                             <label for="">Serie:</label>
-                                             <input type="text" id="serie" class="form-control" value="<?php echo $venta->serie; ?>" name="serie" readonly>
-                                         </div>
-                                         <div class="col-md-3">
-                                             <label for="">Numero:</label>
-                                             <input type="text" class="form-control" id="numero" value="<?php echo $venta->num_documento; ?>" name="numero" readonly>
-                                         </div>
-
-                                     </div>
+                                        
                                      <div class="form-group">
                                          <div class="col-md-3">
                                              <label for="">Cliente:</label>
@@ -80,11 +51,7 @@
                                                  </span>
                                              </div><!-- /input-group -->
                                          </div>
-                                         <div class="col-md-3">
-                                             <label for="descuento">Descuento % :</label>
-                                             <input type="number" name="descuento_porcentaje" min='0' max='100'  id="descuento_porcentaje" class="form-control" value="<?php $des = (($venta->descuentoTotal * 100) / $venta->importeTotal);
-                                                                                                                        echo ($venta->importeTotal != 0) ? number_format($des)  : '';  ?>">
-                                         </div>
+                                       
                                          <div class="col-md-3">
                                              <label for="">Fecha:</label>
                                              <input type="date" value="<?php echo $venta->fecha; ?>" class="form-control" name="fecha" required>
@@ -171,28 +138,12 @@
                                      <div class="form-group">
                                          <div class="col-md-3">
                                              <div class="input-group">
-                                                 <span class="input-group-addon">Subtotal:</span>
+                                                 <span class="input-group-addon">Total:</span>
                                                  <input type="text" class="form-control" placeholder="" value="0.00" name="subtotal" readonly="readonly">
                                              </div>
                                          </div>
-                                         <div class="col-md-3">
-                                             <div class="input-group">
-                                                 <span class="input-group-addon">IVA:</span>
-                                                 <input type="text" class="form-control" placeholder="" value="0.00" name="igv" readonly="readonly">
-                                             </div>
-                                         </div>
-                                         <div class="col-md-3">
-                                             <div class="input-group">
-                                                 <span class="input-group-addon">Descuento:</span>
-                                                 <input type="text" class="form-control" placeholder="" value="0.00" name="descuento" value="0.00" readonly="readonly">
-                                             </div>
-                                         </div>
-                                         <div class="col-md-3">
-                                             <div class="input-group">
-                                                 <span class="input-group-addon">Total:</span>
-                                                 <input type="text" class="form-control" placeholder="" value="0.00" name="total" readonly="readonly">
-                                             </div>
-                                         </div>
+                                        
+                                        
                                      </div>
 
                                      <div class="form-group">

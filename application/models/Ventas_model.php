@@ -3,10 +3,9 @@ class Ventas_model extends CI_Model
 {
     public function getVentas()
     {
-        $this->db->select('v.*, c.nombres, tc.nombre as tipocomprobante');
+        $this->db->select('v.*, c.nombres');
         $this->db->from('ventas v');
         $this->db->join('clientes c', 'v.id_clientes = c.id_clientes');
-        $this->db->join('tipo_comprobante tc', 'v.id_tipo_comprobante = tc.id_tipo_comprobante');
         $resultado = $this->db->get();
 
         if ($resultado->num_rows() > 0) {
@@ -19,10 +18,9 @@ class Ventas_model extends CI_Model
     public function getVentasporFecha($fechainicio, $fechafin)
     {
 
-        $this->db->select('v.*, c.nombres, tc.nombre as tipocomprobante');
+        $this->db->select('v.*, c.nombres');
         $this->db->from('ventas v');
         $this->db->join('clientes c', 'v.id_clientes = c.id_clientes');
-        $this->db->join('tipo_comprobante tc', 'v.id_tipo_comprobante = tc.id_tipo_comprobante');
         $this->db->where("v.fecha >=", $fechainicio);
         $this->db->where("v.fecha <=", $fechafin);
 
@@ -37,10 +35,9 @@ class Ventas_model extends CI_Model
     }
     public function getVenta($id)
     {
-        $this->db->select('v.*, c.nombres, c.direccion, c.telefono, c.num_documento as documento, tc.nombre as tipocomprobante, c.nombres as nombre_cliente, e.nombre as nombre_empleado, e.apellidos as apellidos_empleado');
+        $this->db->select('v.*, c.nombres, c.direccion, c.telefono, c.num_documento as documento, c.nombres as nombre_cliente, e.nombre as nombre_empleado, e.apellidos as apellidos_empleado');
         $this->db->from('ventas v');
         $this->db->join('clientes c', 'v.id_clientes = c.id_clientes');
-        $this->db->join('tipo_comprobante tc', 'v.id_tipo_comprobante = tc.id_tipo_comprobante');
         $this->db->join('empleados e', 'v.id_empleados = e.id_empleados');
         $this->db->where("v.id_ventas", $id);
         $resultado = $this->db->get();

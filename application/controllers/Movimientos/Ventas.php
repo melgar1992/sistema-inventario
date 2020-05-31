@@ -80,7 +80,7 @@ class Ventas extends BaseController
                     'id_empresa' => $id_empresa,
                     'id_empleados' => $idempleado,
                     'subTotal' => $subtotal,
-                    'importeTotal' => $total,
+                    'importeTotal' => $subtotal,
                     'proyecto' => $proyecto,
                     'fecha' => $fecha,
                     'iva' => $igv,

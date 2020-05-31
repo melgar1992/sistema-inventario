@@ -38,28 +38,7 @@
 
                                   <form action="<?php echo base_url(); ?>movimientos/ventas/guardar" method="POST" class="form-horizontal">
                                       <div class="form-group">
-                                          <div class="col-md-3">
-                                              <label for="">Comprobante:</label>
-                                              <select name="comprobantes" id="comprobantes" class="form-control" required>
-                                                  <option value="">Seleccione...</option>
-                                                  <?php foreach ($tipocomprobantes as $tipocomprobante) : ?>
-                                                      <?php $datacomprobante = $tipocomprobante->id_tipo_comprobante . "*" . $tipocomprobante->cantidad . "*" . $tipocomprobante->igv . "*" . $tipocomprobante->serie . "*" . $tipocomprobante->numero_autorizacion . "*" . $tipocomprobante->nit_ci . "*" . $tipocomprobante->llave_dosificacion . "*" . $tipocomprobante->fecha_limite; ?>
-                                                      <option value="<?php echo $datacomprobante; ?>">
-                                                          <?php echo $tipocomprobante->nombre ?></option>
-                                                  <?php endforeach; ?>
-                                              </select>
-                                              <input type="hidden" id="idcomprobante" name="idcomprobante">
-                                              <input type="hidden" id="igv">
-
-                                          </div>
-                                          <div class="col-md-3">
-                                              <label for="">Serie:</label>
-                                              <input type="text" id="serie" class="form-control" name="serie" readonly>
-                                          </div>
-                                          <div class="col-md-3">
-                                              <label for="">Numero:</label>
-                                              <input type="text" class="form-control" id="numero" name="numero" readonly>
-                                          </div>
+                                          
 
                                       </div>
                                       <div class="form-group">
@@ -73,10 +52,7 @@
                                                   </span>
                                               </div><!-- /input-group -->
                                           </div>
-                                          <div class="col-md-3">
-                                              <label for="descuento">Descuento % :</label>
-                                              <input type="number" min='0' max='100' name="descuento_porcentaje" id="descuento_porcentaje" class="form-control">
-                                          </div>
+                                          
                                           <div class="col-md-3">
                                               <label for="">Fecha:</label>
                                               <input type="date" value="<?php echo date("Y-m-d") ?>" class="form-control" name="fecha" required>
@@ -149,28 +125,12 @@
                                       <div class="form-group">
                                           <div class="col-md-3">
                                               <div class="input-group">
-                                                  <span class="input-group-addon">Subtotal:</span>
+                                                  <span class="input-group-addon">Total:</span>
                                                   <input type="text" class="form-control" placeholder="" value="0.00" name="subtotal" readonly="readonly">
                                               </div>
                                           </div>
-                                          <div class="col-md-3">
-                                              <div class="input-group">
-                                                  <span class="input-group-addon">IVA:</span>
-                                                  <input type="text" class="form-control" placeholder="" value="0.00" name="igv" readonly="readonly">
-                                              </div>
-                                          </div>
-                                          <div class="col-md-3">
-                                              <div class="input-group">
-                                                  <span class="input-group-addon">Descuento:</span>
-                                                  <input type="text" class="form-control" placeholder="" value="0.00" name="descuento" value="0.00" readonly="readonly">
-                                              </div>
-                                          </div>
-                                          <div class="col-md-3">
-                                              <div class="input-group">
-                                                  <span class="input-group-addon">Total:</span>
-                                                  <input type="text" class="form-control" placeholder="" value="0.00" name="total" readonly="readonly">
-                                              </div>
-                                          </div>
+                                         
+                                         
                                       </div>
 
                                       <div class="form-group">

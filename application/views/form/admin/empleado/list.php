@@ -3,7 +3,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Plain Page</h3>
+        <h3>Formulario Empleado</h3>
       </div>
 
       <div class="title_right">

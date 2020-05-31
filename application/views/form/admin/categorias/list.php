@@ -3,7 +3,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Categorias</h3>
+                    <h3>Formulario Categorias</h3>
                 </div>
 
                 <div class="title_right">
@@ -16,7 +16,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Categorias de los productos</h2>
+                            <h2>Categorias Productos</h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
@@ -38,16 +38,16 @@
                             <form method="POST" action="<?php echo base_url(); ?>Mantenimiento/Categorias/guardarCategoria" id="categorias" class="form-horizontal form-label-left">
                                 <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
                                     <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-group col-md-7 col-xs-12" placeholder="Nombre de la Categoria">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-control col-md-7 col-xs-12" placeholder="Nombre de la Categoria">
                                         <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="descripcion" id="descripcion" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba una descripcion breve">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <input type="text" name="descripcion" id="descripcion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Escriba una descripcion breve">
 
                                     </div>
                                 </div>

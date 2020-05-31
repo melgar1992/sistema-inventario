@@ -14,13 +14,7 @@
 		<b>Telefono:</b> <?php echo $venta->telefono ?> <br>
 		<b>Direccion</b> <?php echo $venta->direccion ?> <br>
 	</div>
-	<div class="col-xs-6">
-		<b>COMPROBANTE</b> <br>
-		<b>Tipo de Comprobante:</b><?php echo $venta->tipocomprobante ?><br>
-		<b>Serie:</b> <?php echo $venta->serie ?><br>
-		<b>Nro de Comprobante:</b> <?php echo $venta->num_documento ?><br>
-		<b>Fecha</b> <?php echo $venta->fecha ?>
-	</div>
+	
 </div>
 <br>
 <div class="row">
@@ -49,21 +43,12 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="4" class="text-right"><strong>Subtotal:</strong></td>
+					<td colspan="4" class="text-right"><strong>Total:</strong></td>
 					<td><?php echo $venta->subTotal ?></td>
 				</tr>
-				<tr>
-					<td colspan="4" class="text-right"><strong>IVA:</strong></td>
-					<td><?php echo $venta->iva ?></td>
-				</tr>
-				<tr>
-					<td colspan="4" class="text-right"><strong>Descuento:</strong></td>
-					<td><?php echo $venta->descuentoTotal ?></td>
-				</tr>
-				<tr>
-					<td colspan="4" class="text-right"><strong>Total:</strong></td>
-					<td><?php echo $venta->importeTotal ?></td>
-				</tr>
+				
+				
+				
 			</tfoot>
 
 	</div> <br>
