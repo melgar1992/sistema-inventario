@@ -39,7 +39,7 @@
                                  <form action="<?php echo base_url(); ?>movimientos/ventas/actualizar" method="POST" class="form-horizontal">
                                      <div class="form-group">
                                          <input type="number" hidden="hidden" name="id_ventas" id="id_ventas" value="<?php echo $venta->id_ventas ?>">
-                                        
+                                     </div>
                                      <div class="form-group">
                                          <div class="col-md-3">
                                              <label for="">Cliente:</label>
@@ -51,7 +51,7 @@
                                                  </span>
                                              </div><!-- /input-group -->
                                          </div>
-                                       
+
                                          <div class="col-md-3">
                                              <label for="">Fecha:</label>
                                              <input type="date" value="<?php echo $venta->fecha; ?>" class="form-control" name="fecha" required>
@@ -125,8 +125,8 @@
                                                          <td><?php echo $detalle_venta->nombre; ?></td>
                                                          <td><input type='hidden' name='precios[]' value='<?php echo $detalle_venta->precio ?>'><?php echo $detalle_venta->precio ?></td>
                                                          <td><?php echo $detalle_venta->stock; ?></td>
-                                                         <td><input type='number' name='cantidades[]' min='0' max="<?php echo $detalle_venta->stock ?>" value='<?php echo $detalle_venta->cantidad ?>'></td>
-                                                         <td><input type='hidden' name='importes[]' value='<?php echo $detalle_venta->importe ?>'><?php echo $detalle_venta->importe ?></td>
+                                                         <td><input type='number' class="cantidades" name='cantidades[]' min='0' max="<?php echo $detalle_venta->stock ?>" value='<?php echo $detalle_venta->cantidad ?>'></td>
+                                                         <td><input type='hidden' name='importes[]' value='<?php echo $detalle_venta->importe ?>'><p><?php echo $detalle_venta->importe ?></p></td>
                                                          <td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fa fa-remove'></span></button></td>
                                                      </tr>
 
@@ -142,15 +142,15 @@
                                                  <input type="text" class="form-control" placeholder="" value="0.00" name="subtotal" readonly="readonly">
                                              </div>
                                          </div>
-                                        
-                                        
+
+
                                      </div>
 
                                      <div class="form-group">
                                          <div class="col-md-12">
                                              <a class="btn btn-primary btn-flat" href="<?php echo site_url("Movimientos/Ventas") ?>" type="button">Volver</a>
-                                             <?php if($venta->fase_proyecto != 'Completado') :  ?>
-                                             <button type="submit" class="btn btn-warning btn-flat">Editar</button>
+                                             <?php if ($venta->fase_proyecto != 'Completado') :  ?>
+                                                 <button type="submit" class="btn btn-warning btn-flat">Editar</button>
                                              <?php endif; ?>
                                          </div>
 

@@ -51,7 +51,7 @@
                                       <thead>
                                           <tr>
                                               <th>#</th>
-                                              <th>Nombres Cliente</th>                                           
+                                              <th>Nombres Cliente</th>
                                               <th>Fecha</th>
                                               <th>Total</th>
                                               <th>Nombre proyecto</th>
@@ -115,22 +115,21 @@
               </div>
 
               <div class="modal-footer">
-                 
-
-                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-                      <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print">Imprimir</span></button>
 
 
-                  </div>
+                  <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print">Imprimir</span></button>
+
 
               </div>
 
-              <!-- /.modal-content -->
-
           </div>
 
-          <!-- /.modal-dialog -->
+          <!-- /.modal-content -->
 
       </div>
+  </div>
+  <!-- /.modal-dialog -->
 
-      <!-- /.modal -->
+  </div>
+  <!-- /.modal -->
