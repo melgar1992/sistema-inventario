@@ -3,7 +3,7 @@
          <div class="">
              <div class="page-title">
                  <div class="title_left">
-                     <h3>Plain Page</h3>
+                     <h3>Formulario Usuarios</h3>
                  </div>
 
                  <div class="title_right">
@@ -16,7 +16,7 @@
                  <div class="col-md-12 col-sm-12 col-xs-12">
                      <div class="x_panel">
                          <div class="x_title">
-                             <h2>Plain Page</h2>
+                             <h2>Usuarios</h2>
                              <ul class="nav navbar-right panel_toolbox">
                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                  </li>
@@ -39,52 +39,52 @@
 
                                  <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
                                      <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
-                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                         <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-group col-md-7 col-xs-12" placeholder="Nombre del Usuario">
+                                     <div class="col-md-4 col-sm-6 col-xs-12">
+                                         <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-control col-md-7 col-xs-12" placeholder="Nombre del Usuario">
 
 
                                      </div>
                                  </div>
                                  <div class="form-group">
                                      <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos <span class="required">*</span></label>
-                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                         <input type="text" name="apellidos" id="apellidos" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba el Apellido">
+                                     <div class="col-md-4 col-sm-6 col-xs-12">
+                                         <input type="text" name="apellidos" id="apellidos" required="required" class="form-control col-md-7 col-xs-12" placeholder="Escriba el Apellido">
 
                                      </div>
 
                                  </div>
                                  <div class="form-group">
                                      <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Telefono <span class="required">*</span></label>
-                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                         <input type="text" name="telefono" value="<?php echo set_value("telefono"); ?>" id="telefono" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba el Telefono">
+                                     <div class="col-md-4 col-sm-6 col-xs-12">
+                                         <input type="text" name="telefono" value="<?php echo set_value("telefono"); ?>" id="telefono" required="required" class="form-control col-md-7 col-xs-12" placeholder="Escriba el Telefono">
 
                                      </div>
                                  </div>
                                  <div class="form-group <?php echo !empty(form_error("email")) ? 'has-error' : ''; ?>">
                                      <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span></label>
-                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                         <input type="text" name="email" id="email" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba el Email">
+                                     <div class="col-md-4 col-sm-6 col-xs-12">
+                                         <input type="text" name="email" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Escriba el Email">
 
                                      </div>
                                  </div>
                                  <div class="form-group <?php echo !empty(form_error("username")) ? 'has-error' : ''; ?>">
                                      <label for="username" class="control-label col-md-3 col-sm-3 col-xs-12">Usuario <span class="required">*</span></label>
-                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                         <input type="text" name="username" id="username" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba el Usuario">
+                                     <div class="col-md-4 col-sm-6 col-xs-12">
+                                         <input type="text" name="username" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Escriba el Usuario">
                                          <?php echo form_error("username", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                      </div>
                                  </div>
                                  <div class="form-group">
                                      <label for="password" class="control-label col-md-3 col-sm-3 col-xs-12">Contraseña <span class="required">*</span></label>
-                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                         <input type="password" name="password" id="password" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba la contraseña">
+                                     <div class="col-md-4 col-sm-6 col-xs-12">
+                                         <input type="password" name="password" id="password" required="required" class="form-control col-md-7 col-xs-12" placeholder="Escriba la contraseña">
 
                                      </div>
                                  </div>
                                  <div class="form-group">
                                      <label for="roles" class="control-label col-md-3 col-sm-3 col-xs-12">Roles <span class="required">*</span></label>
-                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                         <select name="roles" id="roles" required="required" class="form-group col-md-7 col-xs-12">
+                                     <div class="col-md-4 col-sm-6 col-xs-12">
+                                         <select name="roles" id="roles" required="required" class="form-control col-md-7 col-xs-12">
                                              <?php foreach ($roles as $rol) : ?>
                                                  <option value="<?php echo $rol->id_roles; ?>"><?php echo $rol->nombres; ?></option>
                                              <?php endforeach; ?>
@@ -148,7 +148,7 @@
 
                                                                  <td>
                                                                      <div class="btn-group">
-                                                                         <button type="button" class="btn btn-info btn-vista-usuario" data-toggle="modal" data-target="#modal-default" value="<?php echo $usuario->id_usuarios ?>"><span class="fa fa-search"></span></button>
+                                                                        
                                                                          <a href="<?php echo base_url() ?>Administrador/Usuarios/editar/<?php echo $usuario->id_usuarios; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                                          <a href="<?php echo base_url(); ?>Administrador/Usuarios/borrar/<?php echo $usuario->id_usuarios; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
                                                                      </div>

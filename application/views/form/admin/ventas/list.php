@@ -38,7 +38,7 @@
 
                                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 
-                                      <button type="submit" id="agregar" class="btn btn-success">Agregar salida vesturaio</button>
+                                      <button type="submit" id="agregar" class="btn btn-success">Agregar Salida Vestuario</button>
                               </a>
 
                           </div>

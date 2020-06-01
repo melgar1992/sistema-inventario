@@ -35,17 +35,17 @@
                   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-money"></i> Valor de inventario en proyectos</span>
                     <div class="count red"><?php echo number_format($valor_inventario_proyectos['valorTotal'],2,'.',',')  ?> Bs</div>
-                    <span class="count_bottom"><i class=""><i class=""></i><?php echo $valor_inventario_proyectos['cantidad'] ?> </i>Cantidad items</span>
+                    <span class="count_bottom"><i class=""><i class=""></i><?php echo $valor_inventario_proyectos['cantidad'] ;?> </i> Cantidad items</span>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-money"></i> Valor de inventario en almacen</span>
                     <div class="count green"><?php echo number_format($valor_inventario['valor_total_inventario'],2,'.',',') ; ?> Bs</div>
-                    <span class="count_bottom"><i class="green"><i class=""></i><?php echo $valor_inventario['items_almacen'];?></i>Cantidad items</span>
+                    <span class="count_bottom"><i class=""><i class=""></i><?php echo $valor_inventario['items_almacen'];?></i> Cantidad items</span>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-money"></i>Valor de productos descartados :</span>
-                    <div class="count red"><?php echo number_format($valor_productos_descartados['valor_descarte'],2,'.',',') ?> Bs</div>
-                    <span class="count_bottom"><i class="red"><i class=""></i><?php echo $valor_productos_descartados['cantidad'] ?></i> Cantidad items</span>
+                    <div class="count red"><?php echo number_format($valor_productos_descartados['valor_descarte'],2,'.',',') ;?> Bs</div>
+                    <span class="count_bottom"><i class=""><i class=""></i><?php echo $valor_productos_descartados['cantidad'] ?></i> Cantidad items</span>
                   </div>
 
                 </div>

@@ -3,7 +3,7 @@
          <div class="">
              <div class="page-title">
                  <div class="title_left">
-                     <h3>Configuracion</h3>
+                     <h3>Formulario Configuracion</h3>
                  </div>
 
                  <div class="title_right">
@@ -128,7 +128,7 @@
                                      </div>
                                  </div>
                                  <div class="form-group">
-                                     <label for="nit_ci" class="control-label col-md-3 col-sm-3 col-xs-12">nit <span class="required">*</span></label>
+                                     <label for="nit_ci" class="control-label col-md-3 col-sm-3 col-xs-12">Nit <span class="required">*</span></label>
                                      <div class="col-md-8 col-sm-6 col-xs-12">
                                          <input type="number" name="nit_ci" value="<?php echo !empty(set_value("nit_ci")) ? set_value('nit_ci') : !empty($Datos_factura) ?  $Datos_factura->nit_ci : ''; ?>" id="nit_ci" required="required" class="form-group col-md-7 col-xs-12" placeholder="Nit de la empresa">
 
