@@ -146,8 +146,6 @@
                           <tr>
                             <th>#</th>
                             <th>Nombres Cliente</th>
-                            <th>Tipo Comprobante</th>
-                            <th>Numero del Comprobante</th>
                             <th>Fecha</th>
                             <th>Total</th>
                             <th>Nombre proyecto</th>
@@ -161,8 +159,6 @@
                               <tr>
                                 <td><?php echo $venta->id_ventas; ?></td>
                                 <td><?php echo $venta->nombres; ?></td>
-                                <td><?php echo $venta->tipocomprobante; ?></td>
-                                <td><?php echo $venta->num_documento; ?></td>
                                 <td><?php echo $venta->fecha; ?></td>
                                 <td><?php echo $venta->importeTotal; ?></td>
                                 <td><?php echo $venta->proyecto; ?></td>
