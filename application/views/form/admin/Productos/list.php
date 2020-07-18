@@ -66,7 +66,7 @@
                                 <div class="form-group <?php echo !empty(form_error("precio_compra")) ? 'has-error' : ''; ?>">
                                     <label for="precio_compra" class="control-label col-md-3 col-sm-3 col-xs-12">Precio compra <span class="required">*</span></label>
                                     <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <input type="number" step="0.01" name="precio_compra" value="<?php echo set_value('precio_compra') ?>" id="precio_compra" required="required" placeholder="precio compra del producto" class="form-control col-md-7 col-xs-12">
+                                        <input type="number" step="0.01" name="precio_compra" value="<?php echo set_value('precio_compra') ?>" id="precio_compra" required="required" placeholder="Precio compra del producto" class="form-control col-md-7 col-xs-12">
                                         <?php echo form_error("precio_compra", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                                     </div>
                                 </div>
@@ -130,9 +130,6 @@
                                     </div>
                                 </div>
 
-                                <br>
-                                <br>
-
                                 <div class="form-group">
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -192,7 +189,7 @@
                                                                     <div class="btn-group">
                                                                         <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $productos->id_productos ?>"><span class="fa fa-search"></span></button>
                                                                         <a href="<?php echo base_url() ?>Mantenimiento/Productos/editar/<?php echo $productos->id_productos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                                        <a href="<?php echo base_url(); ?>Mantenimiento/Productos/borrar/<?php echo $productos->id_productos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                                        <button type="button" value="<?php echo  $productos->id_productos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                                     </div>
                                                                 </td>
                                                             </tr>

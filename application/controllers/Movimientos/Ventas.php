@@ -221,7 +221,7 @@ class Ventas extends BaseController
             echo "Movimientos/ventas";
         } else {
             $this->session->set_flashdata('error', 'Hubo un problema al borrar la venta');
-            echo "Movimientos/ventas";
+            echo "Movimientos/Ventas";
         }
     }
     protected function actualizarComprobante($idcomprobante)

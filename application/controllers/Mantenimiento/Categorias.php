@@ -101,6 +101,6 @@ class Categorias extends BaseController
 
         );
         $this->Categorias_model->actualizar($id_categorias, $data);
-        echo "Mantenimiento/Categorias";
+        echo "Mantenimiento/Categorias" ;
     }
 }

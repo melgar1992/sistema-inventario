@@ -87,21 +87,11 @@
                                       <label for="Productos" class="col-md-12">Buscar y agregar productos o servicios</label>
                                       <br></br>
                                       <div class="form-group">
-                                          <div class="col-md-4">
-                                              <label for="">Descripcion:</label>
-                                              <input type="text" class="form-control" id="producto">
-                                          </div>
-                                          <div class="col-md-4">
-                                              <label for="">Codigo producto:</label>
-                                              <input type="text" class="form-control" id="codigo_producto">
-                                          </div>
+                                        
+                                          
                                           <div class="col-md-2">
                                               <label for="">&nbsp;</label>
-                                              <button id="btn-agregar" type="button" class="btn btn-success btn-flat btn-block"><span class="fa fa-plus"></span> Agregar</button>
-                                          </div>
-                                          <div class="col-md-2">
-                                              <label for="">&nbsp;</label>
-                                              <button class="btn btn-primary btn-flat btn-block" type="button" data-toggle="modal" data-target="#modal-productos"><span class="fa fa-search"></span> Buscar</button>
+                                              <button id="btn-agregar"class="btn btn-primary btn-flat btn-block" type="button" data-toggle="modal" data-target="#modal-productos"><span class="fa fa-search"></span> Buscar</button>
                                           </div>
                                       </div>
                                       <br></br>

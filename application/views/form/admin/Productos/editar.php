@@ -136,9 +136,6 @@
                                     </div>
                                 </div>
 
-                                <br>
-                                <br>
-
                                 <div class="form-group">
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
