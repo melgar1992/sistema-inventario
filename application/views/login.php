@@ -57,7 +57,7 @@
                                 <br />
 
                                 <div>
-                                    <h1><i class="fa fa-building"></i> Sitema Inventario </h1>
+                                    <h1><i class="fa fa-building"></i> Sistema Inventario </h1>
 
                                 </div>
                             </div>

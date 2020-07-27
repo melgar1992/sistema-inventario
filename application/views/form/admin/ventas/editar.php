@@ -3,7 +3,7 @@
      <div class="">
          <div class="page-title">
              <div class="title_left">
-                 <h3>Registrar Salida</h3>
+                 <h3>Formulario Salida Vestuario</h3>
              </div>
 
              <div class="title_right">
@@ -16,7 +16,7 @@
              <div class="col-md-12 col-sm-12 col-xs-12">
                  <div class="x_panel">
                      <div class="x_title">
-                         <h2>Formulario de salida de inventario</h2>
+                         <h2>Editar Salida de Vestuario</h2>
                          <ul class="nav navbar-right panel_toolbox">
                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                              </li>
@@ -87,21 +87,10 @@
                                      <label for="Productos" class="col-md-12">Buscar y agregar productos o servicios</label>
                                      <br></br>
                                      <div class="form-group">
-                                         <div class="col-md-4">
-                                             <label for="">Descripcion:</label>
-                                             <input type="text" class="form-control" id="producto">
-                                         </div>
-                                         <div class="col-md-4">
-                                             <label for="">Codigo producto:</label>
-                                             <input type="text" class="form-control" id="codigo_producto">
-                                         </div>
-                                         <div class="col-md-1">
+
+                                         <div class="col-md-2">
                                              <label for="">&nbsp;</label>
-                                             <button id="btn-agregar" type="button" class="btn btn-success btn-flat btn-block"><span class="fa fa-plus"></span> Agregar</button>
-                                         </div>
-                                         <div class="col-md-1">
-                                             <label for="">&nbsp;</label>
-                                             <button class="btn btn-primary btn-flat btn-block" type="button" data-toggle="modal" data-target="#modal-productos"><span class="fa fa-search"></span> Buscar</button>
+                                             <button id="btn-agregar" class="btn btn-primary btn-flat btn-block" type="button" data-toggle="modal" data-target="#modal-productos"><span class="fa fa-search"></span> Buscar</button>
                                          </div>
                                      </div>
                                      <br></br>
@@ -126,7 +115,9 @@
                                                          <td><input type='hidden' name='precios[]' value='<?php echo $detalle_venta->precio ?>'><?php echo $detalle_venta->precio ?></td>
                                                          <td><?php echo $detalle_venta->stock; ?></td>
                                                          <td><input type='number' class="cantidades" name='cantidades[]' min='0' max="<?php echo $detalle_venta->stock ?>" value='<?php echo $detalle_venta->cantidad ?>'></td>
-                                                         <td><input type='hidden' name='importes[]' value='<?php echo $detalle_venta->importe ?>'><p><?php echo $detalle_venta->importe ?></p></td>
+                                                         <td><input type='hidden' name='importes[]' value='<?php echo $detalle_venta->importe ?>'>
+                                                             <p><?php echo $detalle_venta->importe ?></p>
+                                                         </td>
                                                          <td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fa fa-remove'></span></button></td>
                                                      </tr>
 
