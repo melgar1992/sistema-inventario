@@ -36,7 +36,7 @@
                           <div class="row">
                               <div class="col-md-12">
 
-                                  <form action="<?php echo base_url(); ?>movimientos/ventas/guardar" method="POST" class="form-horizontal">
+                                  <form action="<?php echo base_url(); ?>Movimientos/Ventas/guardar" method="POST" class="form-horizontal">
                                       <div class="form-group">
                                           
 

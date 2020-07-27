@@ -36,7 +36,7 @@
                          <div class="row">
                              <div class="col-md-12">
 
-                                 <form action="<?php echo base_url(); ?>movimientos/ventas/actualizar" method="POST" class="form-horizontal">
+                                 <form action="<?php echo base_url(); ?>Movimientos/Ventas/actualizar" method="POST" class="form-horizontal">
                                      <div class="form-group">
                                          <input type="number" hidden="hidden" name="id_ventas" id="id_ventas" value="<?php echo $venta->id_ventas ?>">
                                      </div>

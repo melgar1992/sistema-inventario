@@ -23,6 +23,6 @@ class Dashboard extends BaseController
         );
        
       
-         $this->loadView("Dashboard", "dashboard", $data);
+         $this->loadView("Dashboard", "Dashboard", $data);
     }
 }

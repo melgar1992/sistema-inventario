@@ -110,12 +110,7 @@ $(document).ready(function() {
         },
     });
     $("#btn-agregar").on("click", function() {
-        data = $(this).val();
-        if (data != '') {
-            agregarProducto();
-        } else {
-            alert("seleccione un producto");
-        }
+      
     });
     $(document).on("click", ".btn-remove-producto", function() {
 
