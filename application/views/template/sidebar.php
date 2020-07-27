@@ -44,7 +44,7 @@
 
                                     </ul>
                                 </li>
-                                <?php if ($this->session->userdata('rol') == 'admin' || $this->session->userdata('rol') == 'superadmin') : ?>
+                                <?php if ($this->session->userdata('rol') == 'Admin' || $this->session->userdata('rol') == 'SuperAdmin') : ?>
                                 <li><a><i class="fa fa-user"></i> Administrador <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
 
