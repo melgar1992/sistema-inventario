@@ -44,7 +44,7 @@
 
                                     </ul>
                                 </li>
-                               
+                                <?php if ($this->session->userdata('rol') == 'admin' || $this->session->userdata('rol') == 'superadmin') : ?>
                                 <li><a><i class="fa fa-user"></i> Administrador <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
 
@@ -55,6 +55,7 @@
 
                                     </ul>
                                 </li>
+                                <?php endif ?>
 
                             </ul>
 
